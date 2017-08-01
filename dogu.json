@@ -1,0 +1,20 @@
+{
+  "Name": "staging/plantuml",
+  "Version": "2017.11-1",
+  "DisplayName": "PlantUML",
+  "Description": "Create your PlantUML diagrams directly in your browser!",
+  "Url": "http://plantuml.com/",
+  "Category": "Documentation",
+  "Tags": [
+    "docs", "uml", "graph"
+  ],
+  "Logo": "http://s.plantuml.com/logoc.png",
+  "Image": "registry.cloudogu.com/staging/plantuml",
+  "Dependencies": [
+    "nginx"
+  ],
+  "HealthCheck": {
+    "Type": "tcp",
+    "Port": 8080
+  }
+}
