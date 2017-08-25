@@ -25,10 +25,13 @@ RUN set -x \
  | gunzip \
  | tar x -C /opt \
  && mv /opt/apache-tomcat-* ${CATALINA_BASE} \
- && rm -rf ${CATALINA_BASE}/webapps/*
+ && rm -rf ${CATALINA_BASE}/webapps/* \
+ && chown -R plantuml:plantuml ${CATALINA_BASE}
 
 COPY dist/plantuml.war ${CATALINA_BASE}/webapps/
 
+COPY resources /
+
 EXPOSE 8080
 
-CMD [ "/opt/apache-tomcat/bin/catalina.sh", "run" ]
+CMD "/startup.sh"
