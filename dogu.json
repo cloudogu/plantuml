@@ -1,5 +1,5 @@
 {
-  "Name": "staging/plantuml",
+  "Name": "official/plantuml",
   "Version": "2017.11-1",
   "DisplayName": "PlantUML",
   "Description": "Create your PlantUML diagrams directly in your browser!",
@@ -9,7 +9,7 @@
     "docs", "uml", "graph"
   ],
   "Logo": "http://s.plantuml.com/logoc.png",
-  "Image": "registry.cloudogu.com/staging/plantuml",
+  "Image": "registry.cloudogu.com/official/plantuml",
   "Dependencies": [
     "nginx"
   ],
