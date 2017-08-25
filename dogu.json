@@ -9,7 +9,7 @@
     "docs", "uml", "graph"
   ],
   "Logo": "http://s.plantuml.com/logoc.png",
-  "Image": "registry.cloudogu.com/staging/plantuml",
+  "Image": "registry.cloudogu.com/official/plantuml",
   "Dependencies": [
     "nginx"
   ],
