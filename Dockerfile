@@ -1,4 +1,4 @@
-FROM registry.cloudogu.com/official/java:8u121-4
+FROM registry.cloudogu.com/official/java:8u171-1
 MAINTAINER Sebastian Sdorra <sebastian.sdorra@cloudogu.com>
 
 # configure environment
