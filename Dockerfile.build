@@ -1,6 +1,6 @@
 FROM maven:3.3-jdk-8
 
-ENV PLANTUML_VERSION=2017.11
+ENV PLANTUML_VERSION=1.2018.13
 
 RUN set -x \
  && wget https://github.com/plantuml/plantuml-server/archive/v${PLANTUML_VERSION}.tar.gz -O /plantuml.tar.gz \

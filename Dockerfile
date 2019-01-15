@@ -3,7 +3,7 @@ MAINTAINER Sebastian Sdorra <sebastian.sdorra@cloudogu.com>
 
 # configure environment
 ENV TOMCAT_MAJOR_VERSION=8 \
-	TOMCAT_VERSION=8.0.45 \
+	TOMCAT_VERSION=8.5.37 \
 	CATALINA_BASE=/opt/apache-tomcat \
 	CATALINA_PID=/var/run/tomcat7.pid \
 	CATALINA_SH=/opt/apache-tomcat/bin/catalina.sh \
