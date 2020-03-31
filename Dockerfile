@@ -1,5 +1,23 @@
+ARG PLANTUML_VERSION=1.2018.13
+
+FROM maven:3.3-jdk-8 AS builder
+
+ARG PLANTUML_VERSION
+
+RUN set -x \
+ && wget https://github.com/plantuml/plantuml-server/archive/v${PLANTUML_VERSION}.tar.gz -O /plantuml.tar.gz \
+ && mkdir /src \
+ && cd /src \
+ && tar xvfz /plantuml.tar.gz \
+ && cd plantuml-server-${PLANTUML_VERSION} \
+ && mvn clean package
+
+
+
 FROM registry.cloudogu.com/official/java:8u171-1
 MAINTAINER Sebastian Sdorra <sebastian.sdorra@cloudogu.com>
+
+ARG PLANTUML_VERSION
 
 # configure environment
 ENV TOMCAT_MAJOR_VERSION=8 \
@@ -28,7 +46,7 @@ RUN set -x \
  && rm -rf ${CATALINA_BASE}/webapps/* \
  && chown -R plantuml:plantuml ${CATALINA_BASE}
 
-COPY dist/plantuml.war ${CATALINA_BASE}/webapps/
+COPY --from=builder /src/plantuml-server-${PLANTUML_VERSION}/target/plantuml.war ${CATALINA_BASE}/webapps/
 
 COPY resources /
 
