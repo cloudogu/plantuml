@@ -1,4 +1,4 @@
-ARG PLANTUML_VERSION=1.2018.13
+ARG PLANTUML_VERSION=1.2020.4
 
 FROM maven:3.3-jdk-8 AS builder
 
@@ -15,7 +15,10 @@ RUN set -x \
 
 
 FROM registry.cloudogu.com/official/java:8u171-1
-MAINTAINER Sebastian Sdorra <sebastian.sdorra@cloudogu.com>
+
+LABEL NAME="official/plantuml" \
+   VERSION="2020.4-1" \
+   maintainer="robert.auer@cloudogu.com"
 
 ARG PLANTUML_VERSION
 
@@ -31,13 +34,11 @@ ENV TOMCAT_MAJOR_VERSION=8 \
 RUN set -x \
  # install required packages
  && apk add --no-cache graphviz ttf-dejavu \
-
  # create group and user for plantuml
  && addgroup -S -g 1000 plantuml \
  && adduser -S -h /opt/apache-tomcat -s /bin/bash -G plantuml -u 1000 plantuml \
-
  # install tomcat
- && mkdir /opt \
+ && mkdir -p /opt \
  && curl --fail --silent --location --retry 3 \
  		http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz \
  | gunzip \
