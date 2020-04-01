@@ -53,6 +53,6 @@ COPY resources /
 
 EXPOSE 8080
 
-HEALTHCHECK CMD [ $(doguctl healthy plantuml; echo $?) == 0 ]
+HEALTHCHECK CMD doguctl healthy plantuml || exit 1
 
 CMD "/startup.sh"
