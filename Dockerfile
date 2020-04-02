@@ -14,7 +14,7 @@ RUN set -x \
 
 
 
-FROM registry.cloudogu.com/official/java:8u171-1
+FROM registry.cloudogu.com/official/java:8u242-1
 
 LABEL NAME="official/plantuml" \
    VERSION="2020.4-1" \
@@ -38,12 +38,11 @@ RUN set -x \
  && addgroup -S -g 1000 plantuml \
  && adduser -S -h /opt/apache-tomcat -s /bin/bash -G plantuml -u 1000 plantuml \
  # install tomcat
- && mkdir -p /opt \
  && curl --fail --silent --location --retry 3 \
  		http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz \
  | gunzip \
  | tar x -C /opt \
- && mv /opt/apache-tomcat-* ${CATALINA_BASE} \
+ && mv /opt/apache-tomcat-${TOMCAT_VERSION}/* ${CATALINA_BASE} \
  && rm -rf ${CATALINA_BASE}/webapps/* \
  && chown -R plantuml:plantuml ${CATALINA_BASE}
 
