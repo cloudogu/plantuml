@@ -24,7 +24,7 @@ ARG PLANTUML_VERSION
 
 # configure environment
 ENV TOMCAT_MAJOR_VERSION=8 \
-	TOMCAT_VERSION=8.5.37 \
+	TOMCAT_VERSION=8.5.53 \
 	CATALINA_BASE=/opt/apache-tomcat \
 	CATALINA_PID=/var/run/tomcat7.pid \
 	CATALINA_SH=/opt/apache-tomcat/bin/catalina.sh \
