@@ -1,0 +1,38 @@
+file:
+  /opt/apache-tomcat/webapps/plantuml.war:
+    exists: true
+    owner: plantuml
+    group: plantuml
+    filetype: file
+  /startup.sh:
+    exists: true
+    owner: root
+    group: root
+    filetype: file
+    contains: []
+package:
+  graphviz:
+    installed: true
+  ttf-dejavu:
+    installed: true
+port:
+  tcp:8080:
+    listening: true
+    ip:
+    - 0.0.0.0
+user:
+  plantuml:
+    exists: true
+    uid: 1000
+    gid: 1000
+    groups:
+    - plantuml
+    home: /opt/apache-tomcat
+    shell: /bin/bash
+group:
+  plantuml:
+    exists: true
+    gid: 1000
+process:
+  java:
+    running: true
