@@ -4,8 +4,11 @@ FROM maven:3.6-jdk-8 AS builder
 
 ARG PLANTUML_VERSION
 
+ENV PLANTUML_TARGZ_SHA256=4ef41b71d51b34dae57b38ac7a452cff7e63dd64eaa04e9246a657e7cccff2b9
+
 RUN set -x \
  && wget https://github.com/plantuml/plantuml-server/archive/v${PLANTUML_VERSION}.tar.gz -O /plantuml.tar.gz \
+ && echo "${PLANTUML_TARGZ_SHA256} plantuml.tar.gz" | sha256sum -c - \
  && mkdir /src \
  && cd /src \
  && tar xvfz /plantuml.tar.gz \
