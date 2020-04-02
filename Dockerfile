@@ -1,6 +1,6 @@
 ARG PLANTUML_VERSION=1.2020.4
 
-FROM maven:3.3-jdk-8 AS builder
+FROM maven:3.6-jdk-8 AS builder
 
 ARG PLANTUML_VERSION
 
