@@ -28,6 +28,7 @@ ENV TOMCAT_MAJOR_VERSION=8 \
 	CATALINA_BASE=/opt/apache-tomcat \
 	CATALINA_PID=/var/run/tomcat7.pid \
 	CATALINA_SH=/opt/apache-tomcat/bin/catalina.sh \
+	TOMCAT_TARGZ_SHA256=72e3defbff444548ce9dc60935a1eab822c7d5224f2a8e98c849954575318c08 \
 	SERVICE_TAGS=webapp
 
 # run installation
@@ -38,10 +39,9 @@ RUN set -x \
  && addgroup -S -g 1000 plantuml \
  && adduser -S -h /opt/apache-tomcat -s /bin/bash -G plantuml -u 1000 plantuml \
  # install tomcat
- && curl --fail --silent --location --retry 3 \
- 		http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz \
- | gunzip \
- | tar x -C /opt \
+ && wget "http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz" \
+ && echo "${TOMCAT_TARGZ_SHA256} *apache-tomcat-${TOMCAT_VERSION}.tar.gz" | sha256sum -c - \
+ && tar xf apache-tomcat-${TOMCAT_VERSION}.tar.gz -C /opt \
  && mv /opt/apache-tomcat-${TOMCAT_VERSION}/* ${CATALINA_BASE} \
  && rm -rf ${CATALINA_BASE}/webapps/* \
  && chown -R plantuml:plantuml ${CATALINA_BASE}
