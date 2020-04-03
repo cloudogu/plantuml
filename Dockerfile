@@ -17,7 +17,7 @@ RUN set -x \
 
 
 
-FROM registry.cloudogu.com/official/java:8u242-1
+FROM registry.cloudogu.com/official/java:11.0.5-1
 
 LABEL NAME="official/plantuml" \
    VERSION="2020.4-1" \
@@ -26,12 +26,12 @@ LABEL NAME="official/plantuml" \
 ARG PLANTUML_VERSION
 
 # configure environment
-ENV TOMCAT_MAJOR_VERSION=8 \
-	TOMCAT_VERSION=8.5.53 \
+ENV TOMCAT_MAJOR_VERSION=9 \
+	TOMCAT_VERSION=9.0.33 \
 	CATALINA_BASE=/opt/apache-tomcat \
 	CATALINA_PID=/var/run/tomcat7.pid \
 	CATALINA_SH=/opt/apache-tomcat/bin/catalina.sh \
-	TOMCAT_TARGZ_SHA256=72e3defbff444548ce9dc60935a1eab822c7d5224f2a8e98c849954575318c08 \
+	TOMCAT_TARGZ_SHA256=d5cd9463492f4552229295a9a8c00615748f85e9de36434847d495e95b0ef796 \
 	SERVICE_TAGS=webapp
 
 # run installation
