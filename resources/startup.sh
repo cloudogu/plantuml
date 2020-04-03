@@ -4,7 +4,7 @@ set -o nounset
 set -o pipefail
 
 # adjust webapp permissions
-chown -R plantuml:plantuml ${CATALINA_BASE}/webapps/
+chown -R plantuml:plantuml "${CATALINA_BASE}"/webapps/
 
 # create truststore, which is used in the setenv.sh
 create_truststore.sh > /dev/null
