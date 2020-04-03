@@ -37,7 +37,7 @@ ENV TOMCAT_MAJOR_VERSION=9 \
 # run installation
 RUN set -x \
  # install required packages
- && apk add --no-cache graphviz ttf-dejavu \
+ && apk add --no-cache graphviz ttf-dejavu font-noto-cjk \
  # create group and user for plantuml
  && addgroup -S -g 1000 plantuml \
  && adduser -S -h /opt/apache-tomcat -s /bin/bash -G plantuml -u 1000 plantuml \
