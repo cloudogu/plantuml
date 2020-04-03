@@ -159,7 +159,7 @@ int getChangelogStartIndex(String releaseVersion){
 }
 
 String getChangelogEndIndex(int start){
-    script = "tail -n +${start+1} CHANGELOG.md |grep -n \"## \\[.*\\]\" | sed s/\"^\\([0-9]*\\)[:].*\$\"/\"\\1\"/g | head -1"
+    script = "tail -n +${start+1} CHANGELOG.md |grep -n \"^## \\[.*\\]\" | sed s/\"^\\([0-9]*\\)[:].*\$\"/\"\\1\"/g | head -1"
     output = sh (
         script: script,
         returnStdout: true
