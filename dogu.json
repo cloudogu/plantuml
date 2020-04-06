@@ -1,12 +1,14 @@
 {
   "Name": "official/plantuml",
-  "Version": "2018.13-1",
+  "Version": "2020.4-1",
   "DisplayName": "PlantUML",
   "Description": "Create your PlantUML diagrams directly in your browser!",
   "Url": "http://plantuml.com/",
   "Category": "Documentation",
   "Tags": [
-    "docs", "uml", "graph"
+    "docs",
+    "uml",
+    "graph"
   ],
   "Logo": "http://s.plantuml.com/logoc.png",
   "Image": "registry.cloudogu.com/official/plantuml",
