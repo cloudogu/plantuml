@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added the ability to configure the memory limits with `cesapp edit-config`
+- Optimized max heap size in limited dockerized environments (#61)
+
 ## [v2020.4-1] - 2020-04-06
 ### Added
 - Jenkinsfile
