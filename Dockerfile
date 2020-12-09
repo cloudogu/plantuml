@@ -17,7 +17,7 @@ RUN set -x \
 
 
 
-FROM registry.cloudogu.com/official/java:11.0.5-1
+FROM registry.cloudogu.com/official/java:8u252-1
 
 LABEL NAME="official/plantuml" \
    VERSION="2020.4-1" \

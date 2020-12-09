@@ -6,10 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgraded the java base image to version `8u252-1`
+
 ### Added
 
 - Added the ability to configure the memory limits with `cesapp edit-config`
-- Optimized max heap size in limited dockerized environments (#61)
+- Ability to configure the `MaxRamPercentage` and `MinRamPercentage` for the CAS process inside the container via `cesapp edit-conf` (#3)
 
 ## [v2020.4-1] - 2020-04-06
 ### Added
