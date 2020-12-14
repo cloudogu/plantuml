@@ -1,5 +1,5 @@
 #!groovy
-@Library(['github.com/cloudogu/ces-build-lib@a46de28', 'github.com/cloudogu/dogu-build-lib@ff65ba3'])
+@Library(['github.com/cloudogu/ces-build-lib@1.44.3', 'github.com/cloudogu/dogu-build-lib@v1.1.0'])
 import com.cloudogu.ces.cesbuildlib.*
 import com.cloudogu.ces.dogubuildlib.*
 
@@ -14,6 +14,7 @@ node('docker'){
 
         stage('Shellcheck'){
            shellCheck("resources/startup.sh")
+           shellCheck("release.sh")
            shellCheck("resources/opt/apache-tomcat/bin/setenv.sh")
     }
 }
