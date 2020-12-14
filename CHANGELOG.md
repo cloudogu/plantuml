@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2020.4-2] - 2020-12-14
 ### Changed
 
 - Upgraded the java base image to version `8u252-1`
