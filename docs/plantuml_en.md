@@ -1,10 +1,7 @@
----
-title: "PlantUML"
----
+# PlantUML
 
 Translated with www.DeepL.com/Translator
 
-# PlantUML
 The PlantUML-Dogu enables the integration of UML-diagrams into wikis in textual form. The UML diagram is described as text and versioned like source code. An editor for PlantUML is available in the EcoSystem via the URL `https://FQDN/plantuml` (e.g. https://ecosystem.beispiel.de/plantuml).\newline
 \newline
 
