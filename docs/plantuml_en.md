@@ -1,4 +1,4 @@
-# PlantUML
+# GUI
 
 Translated with www.DeepL.com/Translator
 
