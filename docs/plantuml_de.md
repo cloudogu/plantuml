@@ -1,6 +1,6 @@
 # Oberfläche
 
-Mit dem PlantUML-Dogu wird die Integration von UML-Diagrammen in Wikis in textueller Form ermöglicht. Das UML-Diagramm wird dabei als Text beschrieben und wie Quelltext versioniert. Ein Editor für PlantUML ist im EcoSystem über die URL `https://FQDN/plantuml` erreichbar (z.B. https://ecosystem.beispiel.de/plantuml).
+Mit dem PlantUML-Dogu wird die Integration von UML-Diagrammen in Wikis in textueller Form ermöglicht. Das UML-Diagramm wird dabei als Text beschrieben und wie Quelltext versioniert. Ein Editor für PlantUML ist im EcoSystem über die URL `https://FQDN/plantuml` erreichbar (z.B. `https://ecosystem.beispiel.de/plantuml`).
 
 
 Mit dem Editor lassen sich Diagramme in einer Weboberfläche direkt im Browser beschreiben. Parallel dazu wird unterhalb des Codes eine Vorschau des generierten UML-Diagramms angezeigt. Die Einbindung des Diagramms in ein Wiki erfolgt durch Angabe der jeweiligen PlantUML-URL, die zwischen Codefenster und Diagrammvorschau angezeigt wird.
