@@ -1,6 +1,6 @@
 <img src="https://cloudogu.com/images/dogus/plantuml.png" alt="plantuml logo" height="100px">
 
-[![GitHub license](https://img.shields.io/github/license/cloudogu/plantuml.svg)](https://github.com/cloudogu/plantuml/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/cloudogu/plantuml.svg)](https://github.com/cloudogu/plantuml/blob/develop/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/cloudogu/plantuml.svg)](https://github.com/cloudogu/plantuml/releases)
 
 # Plantuml Dogu
