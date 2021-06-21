@@ -1,4 +1,4 @@
-# GUI
+# Plantuml
 
 Translated with www.DeepL.com/Translator
 
