@@ -14,13 +14,15 @@ The editor can be used to describe diagrams in a web interface directly in the b
 Another way to include PlantUML diagrams directly in the Smeagol wiki is to provide a textual description of the diagram within the corresponding Markdown file. The entered facts are interpreted by Smeagol in conjunction with PlantUML and then displayed as a diagram.
 
 ```
-``uml
+​```uml
 Bob -> Alice : hello
-```
+​```
 ```
 
 The shown input in a Markdown file produces the following result in the wiki:
 
-![UML diagram in Smeagol](figures/plantuml/PlantUMLExampleSmeagol.png)
+![UML-Diagramm in Smeagol](figures/plantuml/PlantUMLBeispielSmeagol.png)
 
 Documentation is available at [http://plantuml.com/](http://plantuml.com/).
+
+More useful tipps can be found in our [Public CES](https://cloudogu.windcloud.de/smeagol/FjSp0UMOA1D6/main/docs/Home).
