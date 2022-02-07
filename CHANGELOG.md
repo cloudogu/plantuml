@@ -5,14 +5,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Upgrade OpenJDK to 8u302
 
 ## [v2020.4-2] - 2020-12-14
 ### Changed
-
 - Upgraded the java base image to version `8u252-1`
 
 ### Added
-
 - Added the ability to configure the memory limits with `cesapp edit-config`
 - Ability to configure the `MaxRamPercentage` and `MinRamPercentage` for the PlantUML process inside the container via `cesapp edit-conf` (#3)
 
