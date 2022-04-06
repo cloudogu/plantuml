@@ -13,7 +13,10 @@
   "Logo": "http://s.plantuml.com/logoc.png",
   "Image": "registry.cloudogu.com/official/plantuml",
   "Dependencies": [
-    "nginx"
+    {
+      "type": "dogu",
+      "name": "nginx"
+    }
   ],
   "Configuration": [
     {

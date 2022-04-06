@@ -21,7 +21,7 @@ FROM registry.cloudogu.com/official/java:8u302-1
 
 LABEL NAME="official/plantuml" \
    VERSION="2020.4-3" \
-   maintainer="robert.auer@cloudogu.com"
+   maintainer="hello@cloudogu.com"
 
 ARG PLANTUML_VERSION
 
@@ -35,7 +35,11 @@ ENV TOMCAT_MAJOR_VERSION=9 \
 	SERVICE_TAGS=webapp
 
 # run installation
-RUN set -x \
+RUN set -o errexit \
+ && set -o nounset \
+ && set -o pipefail \
+ && apk update \
+ && apk upgrade \
  # install required packages
  && apk add --no-cache graphviz ttf-dejavu font-noto-cjk \
  # create group and user for plantuml
