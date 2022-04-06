@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2020.4-4] - 2022-04-06
+### Changed
+- Upgrade zlib package to fix CVE-2018-25032; #6
+
 ## [v2020.4-3] - 2022-02-07
 ### Changed
 - Upgrade OpenJDK to 8u302
