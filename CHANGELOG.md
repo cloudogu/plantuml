@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.2022.5] - 2022-05-16
+
 ## [v2020.4-4] - 2022-04-06
 ### Changed
 - Upgrade zlib package to fix CVE-2018-25032; #6
