@@ -1,10 +1,10 @@
-ARG PLANTUML_VERSION=1.2020.4
+ARG PLANTUML_VERSION=1.2022.4
 
 FROM maven:3.6-jdk-8 AS builder
 
 ARG PLANTUML_VERSION
 
-ENV PLANTUML_TARGZ_SHA256=4ef41b71d51b34dae57b38ac7a452cff7e63dd64eaa04e9246a657e7cccff2b9
+ENV PLANTUML_TARGZ_SHA256=919209adb4cd1191939b4f070562f017af684da19af9d9f33518065b4b2e186a
 
 RUN set -x \
  && wget https://github.com/plantuml/plantuml-server/archive/v${PLANTUML_VERSION}.tar.gz -O /plantuml.tar.gz \

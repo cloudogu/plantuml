@@ -7,8 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [v1.2022.4] - 2022-05-16
-
-## [v1.2022.5] - 2022-05-16
+### Changed
+- Upgraded to PlantUML-Server version v1.2022.4
 
 ## [v2020.4-4] - 2022-04-06
 ### Changed
