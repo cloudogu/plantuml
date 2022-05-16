@@ -20,7 +20,7 @@ RUN set -x \
 FROM registry.cloudogu.com/official/java:8u302-1
 
 LABEL NAME="official/plantuml" \
-   VERSION="2020.4-4" \
+   VERSION="1.2022.5" \
    maintainer="hello@cloudogu.com"
 
 ARG PLANTUML_VERSION
