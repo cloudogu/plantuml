@@ -14,7 +14,7 @@ node('docker'){
 
         stage('Shellcheck'){
            shellCheck("resources/startup.sh")
-           shellCheck("release.sh")
+           shellCheck("resources/release.sh")
            shellCheck("resources/opt/apache-tomcat/bin/setenv.sh")
     }
 }
