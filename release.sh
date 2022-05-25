@@ -3,99 +3,52 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-wait_for_ok(){
-  printf "\n"
-  OK=false
-  while [[ ${OK} != "ok" ]] ; do
-    read -r -p "${1} (type 'ok'): " OK
-  done
+# Extension points in release.sh:
+#
+# A custom release argument file will be sourced if found. The custom release arg file may implement one or more bash
+# functions which either release.sh or release_functions.sh define. If such a custom release function is found the
+# release script must define the argument list which the custom release function will receive during the release.
+
+sourceCustomReleaseArgs() {
+  RELEASE_ARGS_FILE="${1}"
+
+  if [[ -f "${RELEASE_ARGS_FILE}" ]]; then
+    echo "Using custom release args file ${RELEASE_ARGS_FILE}"
+
+    sourceCustomReleaseExitCode=0
+    # shellcheck disable=SC1090
+    source "${RELEASE_ARGS_FILE}" || sourceCustomReleaseExitCode=$?
+    if [[ ${sourceCustomReleaseExitCode} -ne 0 ]]; then
+      echo "Error while sourcing custom release arg file ${sourceCustomReleaseExitCode}. Exiting."
+      exit 9
+    fi
+  fi
 }
 
-ask_yes_or_no(){
-  local ANSWER=""
+PROJECT_DIR="$(pwd)"
+RELEASE_ARGS_FILE="${PROJECT_DIR}/release_args.sh"
 
-  while [ "${ANSWER}" != "y" ] && [ "${ANSWER}" != "n" ]; do
-    read -r -p "${1} (type 'y/n'): " ANSWER
-  done
+sourceCustomReleaseArgs "${RELEASE_ARGS_FILE}"
 
-  echo "${ANSWER}"
-}
+source "$(pwd)/build/make/release_functions.sh"
 
-# dogu.json will always exist. So get current dogu version from dogu.json.
-CURRENT_DOGU_VERSION=$(jq ".Version" --raw-output dogu.json)
+TYPE="${1}"
 
-# Enter the target version
-read -r -p "Current Version is v${CURRENT_DOGU_VERSION}. Please provide the new version: v" NEW_RELEASE_VERSION
+echo "=====Starting Release process====="
 
-# Validate that release version does not start with vv
-if [[ ${NEW_RELEASE_VERSION} = v* ]]; then
-  echo "WARNING: The new release version (v${NEW_RELEASE_VERSION}) starts with 'vv'." 
-  echo "You must not enter the v when defining the new version."
-  ANSWER=$(ask_yes_or_no "Should the first v be removed?")
-  if [ "${ANSWER}" == "y" ]; then
-    NEW_RELEASE_VERSION="${NEW_RELEASE_VERSION:1}"
-    echo "Release version now is: ${NEW_RELEASE_VERSION}"
-  fi
-fi;
-
-# Do gitflow
-git flow init -df
-git checkout master
-git pull origin master
-git checkout develop
-git pull origin develop
-git flow release start v"${NEW_RELEASE_VERSION}"
-
-# Update version in dogu.json
-jq ".Version = \"${NEW_RELEASE_VERSION}\"" dogu.json > dogu2.json && mv dogu2.json dogu.json
-# Update version in Dockerfile
-sed -i "s/\(^[ ]*VERSION=\"\)\([^\"]*\)\(.*$\)/\1${NEW_RELEASE_VERSION}\3/" Dockerfile
-
-# Commit changes to version
-wait_for_ok "Please make sure that all versions have been updated correctly now (e.g. via \"git diff\")."
-git add Dockerfile
-git add dogu.json
-git commit -m "Bump version"
-
-# Changelog update
-VERSION_TAG_IN_CHANGELOG=""
-while [ "${VERSION_TAG_IN_CHANGELOG}" == "" ];
-do
-  wait_for_ok "Please update CHANGELOG.md now."
-  
-  # Validate, that changelog was updated
-  VERSION_TAG_IN_CHANGELOG=$(grep "^\#\#[^\#][ ]*\[v${NEW_RELEASE_VERSION}\]*.*$" CHANGELOG.md || true)
-
-  if [[ "${VERSION_TAG_IN_CHANGELOG}" == "" ]]; then
-    echo "ERROR: The changelog was not updated correctly. Missing 'v${NEW_RELEASE_VERSION}' entry."
-  fi
-done
-
-git add CHANGELOG.md
-git commit -m "Update changelog"
-
-if ! git diff --exit-code > /dev/null; then
-  echo "There are still uncommitted changes:"
-  echo ""
-  echo "# # # # # # # # # #"
-  echo ""
-  git --no-pager diff
-  echo ""
-  echo "# # # # # # # # # #"
+if [ "${TYPE}" == "dogu" ];then
+  CURRENT_TOOL_VERSION=$(get_current_version_by_dogu_json)
+else
+  CURRENT_TOOL_VERSION=$(get_current_version_by_makefile)
 fi
 
-echo "All changes compared to develop branch:"
-echo ""
-echo "# # # # # # # # # #"
-echo ""
-git --no-pager diff develop
-echo ""
-echo "# # # # # # # # # #"
+NEW_RELEASE_VERSION="$(read_new_version)"
 
-# Push changes and delete release branch
-wait_for_ok "Dogu upgrade from version v${CURRENT_DOGU_VERSION} to version v${NEW_RELEASE_VERSION} finished. Should the changes be pushed?"
-git push origin release/v"${NEW_RELEASE_VERSION}"
+validate_new_version "${NEW_RELEASE_VERSION}"
+start_git_flow_release "${NEW_RELEASE_VERSION}"
+update_versions "${NEW_RELEASE_VERSION}"
+update_changelog "${NEW_RELEASE_VERSION}"
+show_diff
+finish_release_and_push "${CURRENT_TOOL_VERSION}" "${NEW_RELEASE_VERSION}"
 
-echo "Switching back to develop and deleting branch release/v${NEW_RELEASE_VERSION}..."
-git checkout develop
-git branch -D release/v"${NEW_RELEASE_VERSION}"
+echo "=====Finished Release process====="

@@ -1,3 +1,5 @@
+##@ Static analysis
+
 STATIC_ANALYSIS_DIR=$(TARGET_DIR)/static-analysis
 GOIMAGE?=golang
 GOTAG?=1.14.13
@@ -5,11 +7,12 @@ CUSTOM_GO_MOUNT?=-v /tmp:/tmp
 
 REVIEW_DOG=$(TMP_DIR)/bin/reviewdog
 LINT=$(TMP_DIR)/bin/golangci-lint
+LINT_VERSION?=v1.33.0
 # ignore tests and mocks
 LINTFLAGS=--tests=false --skip-files="^.*_mock.go$$" --skip-files="^.*/mock.*.go$$"
 
 .PHONY: static-analysis
-static-analysis: static-analysis-$(ENVIRONMENT)
+static-analysis: static-analysis-$(ENVIRONMENT) ## Start a static analysis of the code
 
 .PHONY: static-analysis-ci
 static-analysis-ci:
@@ -55,7 +58,16 @@ static-analysis-ci-report-local: $(STATIC_ANALYSIS_DIR)/static-analysis-cs.log $
 	@cat $(STATIC_ANALYSIS_DIR)/static-analysis-cs.log | $(REVIEW_DOG) -f checkstyle -diff "git diff develop"
 
 $(LINT): $(TMP_DIR)
-	@curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(TMP_DIR)/bin v1.33.0
+	@echo "Download golangci-lint $(LINT_VERSION)..."
+	@curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(TMP_DIR)/bin $(LINT_VERSION)
 
 $(REVIEW_DOG): $(TMP_DIR)
 	@curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b $(TMP_DIR)/bin
+
+##@ Go Static Analysis
+
+${STATIC_ANALYSIS_DIR}/report-govet.out: ${SRC} $(STATIC_ANALYSIS_DIR)
+	@go vet ./... | tee $@
+
+.PHONY: vet
+vet: ${STATIC_ANALYSIS_DIR}/report-govet.out ## Run go vet against code.

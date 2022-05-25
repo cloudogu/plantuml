@@ -1,23 +1,25 @@
 ARG PLANTUML_VERSION=1.2022.4
 
-FROM maven:3.6-jdk-8 AS builder
+FROM maven:3.8.5-openjdk-11-slim AS builder
 
 ARG PLANTUML_VERSION
 
 ENV PLANTUML_TARGZ_SHA256=919209adb4cd1191939b4f070562f017af684da19af9d9f33518065b4b2e186a
 
 RUN set -x \
- && wget https://github.com/plantuml/plantuml-server/archive/v${PLANTUML_VERSION}.tar.gz -O /plantuml.tar.gz \
+ && apt update \
+ && apt install -y wget \
+ && wget https://github.com/plantuml/plantuml-server/archive/refs/tags/v${PLANTUML_VERSION}.tar.gz -O /plantuml.tar.gz \
  && echo "${PLANTUML_TARGZ_SHA256} plantuml.tar.gz" | sha256sum -c - \
  && mkdir /src \
  && cd /src \
  && tar xvfz /plantuml.tar.gz \
  && cd plantuml-server-${PLANTUML_VERSION} \
- && mvn clean package
+ && mvn --batch-mode --define java.net.useSystemProxies=true -Dapache-jsp.scope=compile package
 
 
 
-FROM registry.cloudogu.com/official/java:8u302-1
+FROM registry.cloudogu.com/official/java:11.0.14-3
 
 LABEL NAME="official/plantuml" \
    VERSION="1.2022.4" \
@@ -26,13 +28,15 @@ LABEL NAME="official/plantuml" \
 ARG PLANTUML_VERSION
 
 # configure environment
-ENV TOMCAT_MAJOR_VERSION=9 \
-	TOMCAT_VERSION=9.0.33 \
+ENV TOMCAT_MAJOR_VERSION=10 \
+	TOMCAT_VERSION=10.0.16 \
+        JAVA_CACERTS=$JAVA_HOME/jre/lib/security/cacerts \
 	CATALINA_BASE=/opt/apache-tomcat \
-	CATALINA_PID=/var/run/tomcat7.pid \
+	CATALINA_PID=/var/run/tomcat10.pid \
 	CATALINA_SH=/opt/apache-tomcat/bin/catalina.sh \
-	TOMCAT_TARGZ_SHA256=d5cd9463492f4552229295a9a8c00615748f85e9de36434847d495e95b0ef796 \
-	SERVICE_TAGS=webapp
+	TOMCAT_TARGZ_SHA256=4931f74f8b564d937a95b8afca43a187b94489c2a1fa4d17551acb6cca2d5051 \
+	SERVICE_TAGS=webapp \
+        BASE_URL=plantuml
 
 # run installation
 RUN set -o errexit \
@@ -41,7 +45,7 @@ RUN set -o errexit \
  && apk update \
  && apk upgrade \
  # install required packages
- && apk add --no-cache graphviz ttf-dejavu font-noto-cjk \
+ && apk add --no-cache graphviz ttf-dejavu font-noto-cjk tomcat-native jetty-runner \
  # create group and user for plantuml
  && addgroup -S -g 1000 plantuml \
  && adduser -S -h /opt/apache-tomcat -s /bin/bash -G plantuml -u 1000 plantuml \
