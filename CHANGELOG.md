@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2022.4-1] - 2022-05-25
+### Fixed
+- Versioning of PlanUML Dogu using previous Version scheme
+
 ## [v1.2022.4-1] - 2022-05-25
 ### Changed
 - Upgraded to PlantUML-Server version v1.2022.4
