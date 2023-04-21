@@ -13,7 +13,7 @@ file:
 package:
   graphviz:
     installed: true
-  ttf-dejavu:
+  font-dejavu:
     installed: true
 port:
   tcp:8080:

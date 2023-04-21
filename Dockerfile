@@ -63,7 +63,7 @@ RUN set -o errexit \
  && apk update \
  && apk upgrade \
  # install required packages
- && apk add --no-cache graphviz ttf-dejavu font-noto-cjk tomcat-native jetty-runner \
+ && apk add --no-cache graphviz font-dejavu font-noto-cjk tomcat-native jetty-runner \
  # create group and user for plantuml
  && addgroup -S -g 1000 plantuml \
  && adduser -S -h /opt/apache-tomcat -s /bin/bash -G plantuml -u 1000 plantuml
