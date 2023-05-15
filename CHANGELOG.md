@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Update PlantUML to 1.2023.6 (#12)
 
 ## [v2022.4-2] - 2023-04-21
 ### Changed
@@ -12,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v2022.4-1] - 2022-05-25
 ### Fixed
-- Versioning of PlanUML Dogu using previous Version scheme
+- Versioning of PlantUML Dogu using previous Version scheme
 
 ## [v1.2022.4-1] - 2022-05-25
 ### Changed
