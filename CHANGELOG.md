@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Update PlantUML to 1.2023.6 (#12)
+- Update ces-build-lib to 1.62.2
+- Update dogu-build-lib to v2.1.0
+- Update makefiles to 7.5.0
 
 ## [v2022.4-2] - 2023-04-21
 ### Changed
