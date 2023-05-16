@@ -1,4 +1,4 @@
-ARG PLANTUML_VERSION=1.2022.4
+ARG PLANTUML_VERSION=1.2023.6
 ARG TOMCAT_MAJOR_VERSION=10
 ARG TOMCAT_VERSION=10.0.16
 ARG TOMCAT_TARGZ_SHA256=4931f74f8b564d937a95b8afca43a187b94489c2a1fa4d17551acb6cca2d5051
@@ -7,7 +7,7 @@ FROM maven:3.8.5-openjdk-11-slim AS builder
 
 ARG PLANTUML_VERSION
 
-ENV PLANTUML_TARGZ_SHA256=919209adb4cd1191939b4f070562f017af684da19af9d9f33518065b4b2e186a
+ENV PLANTUML_TARGZ_SHA256=ef2476a1f02305d90ef54bed24c78683e7336d501ebebaac80fe0e62e00ebb96
 
 RUN set -x \
  && apt update \
@@ -41,7 +41,7 @@ RUN apk update && apk add wget && wget -O  "apache-tomcat-${TOMCAT_VERSION}.tar.
 FROM registry.cloudogu.com/official/java:11.0.18-1
 
 LABEL NAME="official/plantuml" \
-   VERSION="2022.4-2" \
+   VERSION="2023.6-1" \
    maintainer="hello@cloudogu.com"
 
 ARG PLANTUML_VERSION
