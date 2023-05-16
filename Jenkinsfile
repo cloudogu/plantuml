@@ -1,5 +1,5 @@
 #!groovy
-@Library(['github.com/cloudogu/dogu-build-lib@v1.4.1', 'github.com/cloudogu/ces-build-lib@v1.48.0'])
+@Library(['github.com/cloudogu/dogu-build-lib@v2.1.0', 'github.com/cloudogu/ces-build-lib@1.64.2'])
 import com.cloudogu.ces.cesbuildlib.*
 import com.cloudogu.ces.dogubuildlib.*
 
@@ -32,7 +32,7 @@ node('vagrant') {
         try {
 
             stage('Provision') {
-                ecoSystem.provision("/dogu");
+                ecoSystem.provision("/dogu")
             }
 
             stage('Setup') {
@@ -56,7 +56,7 @@ node('vagrant') {
 
             if (isReleaseBranch()) {
                 stage('Finish Release') {
-                    String releaseVersion = getReleaseVersion();
+                    String releaseVersion = getReleaseVersion()
                     echo "Your release version is: ${releaseVersion}"
 
                     // Check if tag already exists
@@ -178,7 +178,7 @@ String getRepositoryName(Git git){
 }
 
 void addGithubRelease(String releaseVersion, String changes, Git git){
-    name = getRepositoryName(git);
+    name = getRepositoryName(git)
     echo "Creating github release..."
     withCredentials([usernamePassword(credentialsId: 'cesmarvin', usernameVariable: 'GIT_AUTH_USR', passwordVariable: 'GIT_AUTH_PSW')]) {
         body = "'{\"tag_name\": \"${releaseVersion}\", \"target_commitish\": \"master\", \"name\": \"${releaseVersion}\", \"body\":\"${changes}\"}'"
@@ -195,11 +195,11 @@ void addGithubRelease(String releaseVersion, String changes, Git git){
 }
 
 boolean isReleaseBranch() {
-    return env.BRANCH_NAME.startsWith("release/");
+    return env.BRANCH_NAME.startsWith("release/")
 }
 
 String getReleaseVersion() {
-    return env.BRANCH_NAME.substring("release/".length());
+    return env.BRANCH_NAME.substring("release/".length())
 }
 
 void gitWithCredentials(String command){
