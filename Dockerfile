@@ -41,7 +41,7 @@ RUN apk update && apk add wget && wget -O  "apache-tomcat-${TOMCAT_VERSION}.tar.
 FROM registry.cloudogu.com/official/java:11.0.18-1
 
 LABEL NAME="official/plantuml" \
-   VERSION="2022.4-2" \
+   VERSION="2023.6-1" \
    maintainer="hello@cloudogu.com"
 
 ARG PLANTUML_VERSION
