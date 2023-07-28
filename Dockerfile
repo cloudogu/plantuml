@@ -72,7 +72,8 @@ COPY --from=tomcat --chown=plantuml:plantuml /opt/apache-tomcat-${TOMCAT_VERSION
 COPY --from=builder --chown=plantuml:plantuml /src/plantuml-server-${PLANTUML_VERSION}/target/plantuml.war ${CATALINA_BASE}/webapps/
 COPY --chown=plantuml:plantuml resources /
 
-USER plantuml:plantuml
+USER 1000:1000
+
 EXPOSE 8080
 
 HEALTHCHECK CMD doguctl healthy plantuml || exit 1
