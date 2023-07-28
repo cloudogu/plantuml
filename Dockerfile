@@ -1,47 +1,46 @@
-ARG PLANTUML_VERSION=1.2023.6
+ARG PLANTUML_VERSION=1.2023.10
 ARG TOMCAT_MAJOR_VERSION=10
-ARG TOMCAT_VERSION=10.0.16
-ARG TOMCAT_TARGZ_SHA256=4931f74f8b564d937a95b8afca43a187b94489c2a1fa4d17551acb6cca2d5051
+ARG TOMCAT_VERSION=10.1.11
+ARG TOMCAT_TARGZ_SHA512=ad754aa695898cf8af5b64f4e29da7013fb39f808a90fa0e030228680a17c01b10bb0904762417ebac99b075947e4ea26f2f22f5da2aa4e399237468b76fa4fb
 
 FROM maven:3.8.5-openjdk-11-slim AS builder
 
 ARG PLANTUML_VERSION
 
-ENV PLANTUML_TARGZ_SHA256=ef2476a1f02305d90ef54bed24c78683e7336d501ebebaac80fe0e62e00ebb96
+ENV PLANTUML_TARGZ_SHA256=895dc7047b77b2932075e971e80ed5615c60e007b0c6ac28573c093cebf1ab8b
 
-RUN set -x \
+RUN set -eux \
  && apt update \
- && apt install -y wget \
- && wget https://github.com/plantuml/plantuml-server/archive/refs/tags/v${PLANTUML_VERSION}.tar.gz -O /plantuml.tar.gz \
- && echo "${PLANTUML_TARGZ_SHA256} plantuml.tar.gz" | sha256sum -c - \
- && mkdir /src \
- && cd /src \
- && tar xvfz /plantuml.tar.gz \
- && cd plantuml-server-${PLANTUML_VERSION} \
- && mvn --batch-mode --define java.net.useSystemProxies=true -Dapache-jsp.scope=compile package
+ && apt install -y wget
+WORKDIR /src
+RUN wget https://github.com/plantuml/plantuml-server/archive/refs/tags/v${PLANTUML_VERSION}.tar.gz -O plantuml.tar.gz
+RUN echo "${PLANTUML_TARGZ_SHA256} plantuml.tar.gz" | sha256sum -c -
+RUN tar xvfz plantuml.tar.gz
+RUN cd plantuml-server-${PLANTUML_VERSION} && mvn --batch-mode --define java.net.useSystemProxies=true -Dapache-jsp.scope=compile package
 
-FROM registry.cloudogu.com/official/base:3.17.3-2 as tomcat
+FROM registry.cloudogu.com/official/base:3.17.3-2 AS tomcat
 
 ARG TOMCAT_MAJOR_VERSION
 ARG TOMCAT_VERSION
-ARG TOMCAT_TARGZ_SHA256
+ARG TOMCAT_TARGZ_SHA512
 
 ENV TOMCAT_MAJOR_VERSION=${TOMCAT_MAJOR_VERSION} \
     TOMCAT_VERSION=${TOMCAT_VERSION} \
-    TOMCAT_TARGZ_SHA256=${TOMCAT_TARGZ_SHA256}
+    TOMCAT_TARGZ_SHA256=${TOMCAT_TARGZ_SHA512}
 
-RUN apk update && apk add wget && wget -O  "apache-tomcat-${TOMCAT_VERSION}.tar.gz" \
-  "http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz" \
-  && echo "${TOMCAT_TARGZ_SHA256} *apache-tomcat-${TOMCAT_VERSION}.tar.gz" | sha256sum -c - \
-  && gunzip "apache-tomcat-${TOMCAT_VERSION}.tar.gz" \
-  && tar xf "apache-tomcat-${TOMCAT_VERSION}.tar" -C /opt \
-  && rm "apache-tomcat-${TOMCAT_VERSION}.tar"
+RUN apk update && apk add wget
+RUN wget -O  "apache-tomcat-${TOMCAT_VERSION}.tar.gz" \
+  "http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz"
+RUN echo "${TOMCAT_TARGZ_SHA512} *apache-tomcat-${TOMCAT_VERSION}.tar.gz" | sha512sum -c -
+RUN gunzip "apache-tomcat-${TOMCAT_VERSION}.tar.gz"
+RUN tar xf "apache-tomcat-${TOMCAT_VERSION}.tar" -C /opt
+RUN rm "apache-tomcat-${TOMCAT_VERSION}.tar"
 
 
 FROM registry.cloudogu.com/official/java:11.0.18-1
 
 LABEL NAME="official/plantuml" \
-   VERSION="2023.6-1" \
+   VERSION="2023.10-1" \
    maintainer="hello@cloudogu.com"
 
 ARG PLANTUML_VERSION
@@ -62,7 +61,6 @@ RUN set -o errexit \
  && set -o pipefail \
  && apk update \
  && apk upgrade \
- # install required packages
  && apk add --no-cache graphviz font-dejavu font-noto-cjk tomcat-native jetty-runner \
  # create group and user for plantuml
  && addgroup -S -g 1000 plantuml \
