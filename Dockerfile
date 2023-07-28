@@ -50,6 +50,7 @@ ARG TOMCAT_VERSION
 ENV TOMCAT_VERSION=${TOMCAT_VERSION} \
     JAVA_CACERTS=$JAVA_HOME/jre/lib/security/cacerts \
 	CATALINA_BASE=/opt/apache-tomcat \
+    TRUSTSTORE=/opt/apache-tomcat/truststore.jks \
 	CATALINA_PID=/var/run/tomcat10.pid \
 	CATALINA_SH=/opt/apache-tomcat/bin/catalina.sh \
 	SERVICE_TAGS=webapp \
@@ -67,14 +68,11 @@ RUN set -o errexit \
  && adduser -S -h /opt/apache-tomcat -s /bin/bash -G plantuml -u 1000 plantuml
 
 #install tomcat
-COPY --from=tomcat /opt/apache-tomcat-${TOMCAT_VERSION} ${CATALINA_BASE}
+COPY --from=tomcat --chown=plantuml:plantuml /opt/apache-tomcat-${TOMCAT_VERSION} ${CATALINA_BASE}
+COPY --from=builder --chown=plantuml:plantuml /src/plantuml-server-${PLANTUML_VERSION}/target/plantuml.war ${CATALINA_BASE}/webapps/
+COPY --chown=plantuml:plantuml resources /
 
-RUN chown -R plantuml:plantuml ${CATALINA_BASE}
-
-COPY --from=builder /src/plantuml-server-${PLANTUML_VERSION}/target/plantuml.war ${CATALINA_BASE}/webapps/
-
-COPY resources /
-
+USER plantuml:plantuml
 EXPOSE 8080
 
 HEALTHCHECK CMD doguctl healthy plantuml || exit 1
