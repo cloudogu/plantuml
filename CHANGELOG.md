@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Run PlantUML container no longer as privileged user (#14)
+
+### Changed
+- Update PlantUML to 1.2023.10 (#14)
+- Update Apache Tomcat to 10.1.11 (#14)
 
 ## [v2023.6-1] - 2023-05-16
 ### Changed

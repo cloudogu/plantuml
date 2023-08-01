@@ -6,8 +6,8 @@ file:
     filetype: file
   /startup.sh:
     exists: true
-    owner: root
-    group: root
+    owner: plantuml
+    group: plantuml
     filetype: file
     contains: []
 package:
