@@ -1,0 +1,7 @@
+trustedRegistries:
+  - docker.io
+  - registry.cloudogu.com
+  - "*.gcr.io"
+
+failure-threshold: error
+no-color: true
