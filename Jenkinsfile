@@ -1,5 +1,5 @@
 #!groovy
-@Library(['github.com/cloudogu/dogu-build-lib@v2.2.0', 'github.com/cloudogu/ces-build-lib@3afd8d2da3651c465953e0b823972cc89a731287'])
+@Library(['github.com/cloudogu/dogu-build-lib@v2.2.0', 'github.com/cloudogu/ces-build-lib@2030cff2f96c572a2a92f8c96e546bf24f1bf7bd'])
 import com.cloudogu.ces.cesbuildlib.*
 import com.cloudogu.ces.dogubuildlib.*
 
@@ -9,7 +9,8 @@ node('docker'){
         }
 
         stage('Lint') {
-            lintDockerfile()
+            Dockerfile dockerfile = new Dockerfile(this)
+            dockerfile.lint()
         }
 
         stage('Shellcheck'){
