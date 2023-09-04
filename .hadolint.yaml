@@ -3,5 +3,5 @@ trustedRegistries:
   - registry.cloudogu.com
   - "*.gcr.io"
 
-failure-threshold: error
+failure-threshold: warning
 no-color: true
