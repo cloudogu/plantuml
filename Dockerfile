@@ -54,7 +54,8 @@ ENV TOMCAT_VERSION=${TOMCAT_VERSION} \
 	CATALINA_PID=/var/run/tomcat10.pid \
 	CATALINA_SH=/opt/apache-tomcat/bin/catalina.sh \
 	SERVICE_TAGS=webapp \
-    BASE_URL=plantuml
+    BASE_URL=plantuml \
+    STARTUP_DIR=/
 
 # run installation
 RUN set -o errexit \
@@ -70,7 +71,7 @@ RUN set -o errexit \
 #install tomcat
 COPY --from=tomcat --chown=plantuml:plantuml /opt/apache-tomcat-${TOMCAT_VERSION} ${CATALINA_BASE}
 COPY --from=builder --chown=plantuml:plantuml /src/plantuml-server-${PLANTUML_VERSION}/target/plantuml.war ${CATALINA_BASE}/webapps/
-COPY --chown=plantuml:plantuml resources /
+COPY --chown=plantuml:plantuml resources ${STARTUP_DIR}
 
 USER 1000
 
