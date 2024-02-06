@@ -57,5 +57,14 @@
   "HealthCheck": {
     "Type": "tcp",
     "Port": 8080
-  }
+  },
+  "Volumes": [
+    {
+      "Name": "logs",
+      "Path": "/opt/logs",
+      "Owner": "1000",
+      "Group": "1000",
+      "NeedsBackup": false
+    }
+  ]
 }
