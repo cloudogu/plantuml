@@ -22,5 +22,3 @@ Die abgebildete Eingabe in einer Markdown-Datei erzeugt dabei das folgende Ergeb
 ![UML-Diagramm in Smeagol](figures/plantuml/PlantUMLBeispielSmeagol.png)
 
 Eine Dokumentation ist unter [http://plantuml.com/](http://plantuml.com/) verfügbar.
-
-Weitere nützliche Tipps sind im [Public CES](https://cloudogu.windcloud.de/smeagol/FjSp0UMOA1D6/main/docs/Home) zu finden.
