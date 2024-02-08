@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2023.10-2] - 2024-02-08
+### Added
+- add dogu configuration key `logging/root` to the output control log level 
+
+### Fixed
+- log files no longer spam the container file system which lead to resource exhaustion in the host file system (#173)
+  - generated log files (which formerly resided under `/opt/apache-tomcat/logs`) will now stream directly to the container's standard output (#16)
+  - consequently all PlantUML logs flow right into the corresponding dogu log file on the host
+
 ## [v2023.10-1] - 2023-08-01
 ### Fixed
 - Run PlantUML container no longer as privileged user (#14)

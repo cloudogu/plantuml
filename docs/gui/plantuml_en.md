@@ -23,4 +23,3 @@ The shown input in a Markdown file produces the following result in the wiki:
 
 Documentation is available at [http://plantuml.com/](http://plantuml.com/).
 
-More useful tipps can be found in our [Public CES](https://cloudogu.windcloud.de/smeagol/FjSp0UMOA1D6/main/docs/Home).
