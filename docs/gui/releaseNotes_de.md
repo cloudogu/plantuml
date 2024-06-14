@@ -6,9 +6,8 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## Release 2023.10-2
 
-No changes have been made that affect user behavior. Technical changes can be found in the changelogs.
+Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
 
 ## Release 2023.10-1
 
-**New functionalities**
-The Dogu now offers the PlantUML version 1.2023.10. The release notes of PlantUML can be found [here](https://plantuml.com/en/changes) (at V1.2023.10 (July 12, 2023)).
+* Das Dogu bietet nun die PlantUML-Version 1.2023.10. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes) (unter V1.2023.10 (July 12, 2023)).

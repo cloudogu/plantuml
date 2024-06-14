@@ -4,15 +4,10 @@ Below you will find the release notes for the PlantUML Dogu.
 
 Technical details on a release can be found in the corresponding [Changelog](https://docs.cloudogu.com/en/docs/dogus/plantuml/CHANGELOG/).
 
-## Release 1.14.3-2
+## Release 2023.10-2
 
-**Changed functionalities**
+We have only made technical changes. You can find more details in the changelogs.
 
-* Improved usability: When creating or editing groups or accounts, feedback is given when saving if these are incorrect.
+## Release 2023.10-1
 
-## Release 1.14.3-1
-
-**Changed functionalities**
-
-* Extension of mail validation: Mail addresses with numbers can now also be stored for accounts.
-* Adaptation of group management: Groups may not contain spaces. Due to old versions, groups with spaces may exist in the system. These can now be edited again.
+* The Dogu now offers the PlantUML version 1.2023.10. The release notes of PlantUML can be found [here](https://plantuml.com/en/changes) (at V1.2023.10 (July 12, 2023)).
