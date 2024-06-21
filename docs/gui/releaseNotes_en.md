@@ -1,0 +1,13 @@
+# Release Notes
+
+Below you will find the release notes for the PlantUML Dogu. 
+
+Technical details on a release can be found in the corresponding [Changelog](https://docs.cloudogu.com/en/docs/dogus/plantuml/CHANGELOG/).
+
+## Release 2023.10-2
+
+We have only made technical changes. You can find more details in the changelogs.
+
+## Release 2023.10-1
+
+* The Dogu now offers the PlantUML version 1.2023.10. The release notes of PlantUML can be found [here](https://plantuml.com/en/changes) (at V1.2023.10 (July 12, 2023)).
