@@ -18,7 +18,7 @@ RUN echo "${PLANTUML_TARGZ_SHA256} plantuml.tar.gz" | sha256sum -c -
 RUN tar xvfz plantuml.tar.gz
 RUN cd plantuml-server-${PLANTUML_VERSION} && mvn --batch-mode --define java.net.useSystemProxies=true -Dapache-jsp.scope=compile package
 
-FROM registry.cloudogu.com/official/base:3.17.3-2 AS tomcat
+FROM registry.cloudogu.com/official/base:3.20.1-2 AS tomcat
 
 ARG TOMCAT_MAJOR_VERSION
 ARG TOMCAT_VERSION
@@ -37,7 +37,7 @@ RUN tar xf "apache-tomcat-${TOMCAT_VERSION}.tar" -C /opt
 RUN rm "apache-tomcat-${TOMCAT_VERSION}.tar"
 
 
-FROM registry.cloudogu.com/official/java:11.0.18-1
+FROM registry.cloudogu.com/official/java:11.0.23-3
 
 LABEL NAME="official/plantuml" \
    VERSION="2023.10-2" \
