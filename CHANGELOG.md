@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2023.10-3] - 2024-06-28
+### Changed
+- Update base image to java:11.0.23-3 to use doguctl v0.12.0 (#21)
+
 ## [v2023.10-2] - 2024-02-08
 ### Added
 - add dogu configuration key `logging/root` to the output control log level 
