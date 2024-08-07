@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2023.10-4] - 2024-08-07
+### Changed
+- [#23] Upgrade base-images to base:3.20.2-1 and java:11.0.24-1 
+
+### Security
+- close CVE-2024-41110
+
 ## [v2023.10-3] - 2024-06-28
 ### Changed
 - Update base image to java:11.0.23-3 to use doguctl v0.12.0 (#21)
