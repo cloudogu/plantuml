@@ -1,6 +1,6 @@
 {
   "Name": "official/plantuml",
-  "Version": "2023.10-3",
+  "Version": "2023.10-4",
   "DisplayName": "PlantUML",
   "Description": "Create your PlantUML diagrams directly in your browser!",
   "Url": "http://plantuml.com/",
