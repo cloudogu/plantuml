@@ -4,6 +4,10 @@ Below you will find the release notes for the PlantUML Dogu.
 
 Technical details on a release can be found in the corresponding [Changelog](https://docs.cloudogu.com/en/docs/dogus/plantuml/CHANGELOG/).
 
+## Release 2023.10-5
+
+* Relicense own code to AGPL-3.0-only.
+
 ## Release 2023.10-4
 
 * Fix of critical CVE-2024-41110 in library dependencies. This vulnerability could not be actively exploited, though.
