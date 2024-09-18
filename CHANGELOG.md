@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2023.10-5] - 2024-09-18
+### Changed
+- Relicense to AGPL-3.0-only
+
 ## [v2023.10-4] - 2024-08-07
 ### Changed
 - [#23] Upgrade base-images to base:3.20.2-1 and java:11.0.24-1 
