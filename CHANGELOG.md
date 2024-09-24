@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2024.7-1] - 2024-09-24
+### Changed
+- Update PlantUML version to 1.2024.7 (#27)
+- Update Apache Tomcat to 10.1.30 (#27)
+
 ## [v2023.10-5] - 2024-09-18
 ### Changed
 - Relicense to AGPL-3.0-only

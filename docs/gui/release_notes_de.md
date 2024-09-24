@@ -4,6 +4,10 @@ Im Folgenden finden Sie die Release Notes für das PlantUML-Dogu.
 
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/plantuml/CHANGELOG/).
 
+## Release 2024.7-1
+
+Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
+
 ## Release 2023.10-5
 
 * Die Cloudogu-eigenen Quellen werden von der MIT-Lizenz auf die AGPL-3.0-only relizensiert.
