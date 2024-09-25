@@ -6,8 +6,7 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## Release 2024.7-1
 
-Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
-
+* Das Dogu bietet nun die PlantUML-Version 1.2024.7. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes) (unter V1.2024.7 (September 24, 2024)).
 ## Release 2023.10-5
 
 * Die Cloudogu-eigenen Quellen werden von der MIT-Lizenz auf die AGPL-3.0-only relizensiert.
