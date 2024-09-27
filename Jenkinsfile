@@ -77,6 +77,15 @@ node('vagrant') {
                 ecoSystem.verify("/dogu")
             }
 
+            stage('Integration Tests') {
+                echo "run integration tests."
+                ecoSystem.runCypressIntegrationTests([
+                        cypressImage     : "cypress/included:13.13.1",
+                        enableVideo      : params.EnableVideoRecording,
+                        enableScreenshots: params.EnableScreenshotRecording,
+                ])
+            }
+
             if (gitflow.isReleaseBranch()) {
                 String releaseVersion = git.getSimpleBranchName();
 
