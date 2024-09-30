@@ -1,6 +1,12 @@
 Feature: PlantUML
-  Background:
-    Given the user opens the dogu start page
+Background:
+  Given the user opens the dogu start page
+
+Scenario: PlantUML gets opened
+  Then plantuml is shown
+
+Scenario: Warp menu exists
+  Then warp menu exists
 
 Scenario: Change existing diagram
   And diagram type is set to ascii

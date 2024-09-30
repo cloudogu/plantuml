@@ -1,5 +1,5 @@
 #!groovy
-@Library(['github.com/cloudogu/ces-build-lib@2.0.1', 'github.com/cloudogu/dogu-build-lib@v2.3.0'])
+@Library(['github.com/cloudogu/ces-build-lib@2.4.0', 'github.com/cloudogu/dogu-build-lib@v2.4.0'])
 import com.cloudogu.ces.cesbuildlib.*
 import com.cloudogu.ces.dogubuildlib.*
 
@@ -84,7 +84,7 @@ node('vagrant') {
             stage('Integration Tests') {
                 echo "run integration tests."
                 ecoSystem.runCypressIntegrationTests([
-                        cypressImage     : "cypress/included:13.13.1",
+                        cypressImage     : "cypress/included:13.14.2",
                         enableVideo      : params.EnableVideoRecording,
                         enableScreenshots: params.EnableScreenshotRecording,
                 ])
