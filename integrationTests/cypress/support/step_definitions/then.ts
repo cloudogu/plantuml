@@ -19,9 +19,10 @@ Then('picture gets downloaded', () => {
 });
 
 Then('plantuml is shown', () => {
-    cy.get('.header').should('have.value', 'PlantUML Server');
+    cy.get('.header').should('contain.text', 'PlantUML');
 })
 
 Then('warp menu exists', () => {
-    cy.get('#warp-toggle');
+    // warp menu is located in shadow dom
+    cy.get('#warp-menu-shadow-host').shadow().find('#warp-toggle');
 })

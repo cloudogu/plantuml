@@ -7,7 +7,6 @@ When('diagram gets edited', () => {
 When('diagram gets exported', () => {
     cy.get('.editor-menu').click({ force: true });
     cy.get('.menu-item').eq(2).click({ force: true });
-    cy.wait(10000);
     cy.get('#diagram-export-ok-btn').click({ force: true });
 });
 
