@@ -1,9 +1,8 @@
 import {Then} from '@badeball/cypress-cucumber-preprocessor';
 
 Then('diagram matches', () => {
-    // plantuml is really slow in applying the new inserted text
-    cy.wait(1000);
-    cy.get('#diagram-txt').invoke('text').then((text) => {
+    cy.get('#diagram-txt:contains("Carl")', { timeout: 1000 });
+    cy.get('#diagram-txt', { timeout: 1000 }).invoke('text').then((text) => {
         cy.readFile('cypress/fixtures/diagram.txt').should('eq', text)
     })
 });
