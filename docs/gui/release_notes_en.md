@@ -4,6 +4,8 @@ Below you will find the release notes for the PlantUML Dogu.
 
 Technical details on a release can be found in the corresponding [Changelog](https://docs.cloudogu.com/en/docs/dogus/plantuml/CHANGELOG/).
 
+## [Unreleased]
+
 ## Release 2024.7-1
 
 We have only made technical changes. You can find more details in the changelogs.
