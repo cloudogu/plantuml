@@ -38,12 +38,10 @@ node('vagrant') {
                 // Don't run concurrent builds for a branch, because they use the same workspace directory
                 disableConcurrentBuilds(),
                 parameters([
-                    booleanParam(defaultValue: false, description: 'Test dogu upgrade from latest release or optionally from defined version below', name: 'TestDoguUpgrade'),
-                    string(defaultValue: '', description: 'Old Dogu version for the upgrade test (optional; e.g. 2.222.1-1)', name: 'OldDoguVersionForUpgradeTest'),
-                    booleanParam(defaultValue: false, description: 'Enables the video recording during the test execution', name: 'EnableVideoRecording'),
-                    booleanParam(defaultValue: false, description: 'Enables the screenshot recording during the test execution', name: 'EnableScreenshotRecording'),
-                    choice(name: 'TrivySeverityLevels', choices: [TrivySeverityLevel.CRITICAL, TrivySeverityLevel.HIGH_AND_ABOVE, TrivySeverityLevel.MEDIUM_AND_ABOVE, TrivySeverityLevel.ALL], description: 'The levels to scan with trivy'),
-                    choice(name: 'TrivyStrategy', choices: [TrivyScanStrategy.UNSTABLE, TrivyScanStrategy.FAIL, TrivyScanStrategy.IGNORE], description: 'Define whether the build should be unstable, fail or whether the error should be ignored if any vulnerability was found.'),
+                    booleanParam(defaultValue: true, description: 'Enables cypress to record video of the integration tests.', name: 'EnableVideoRecording'),
+                    booleanParam(defaultValue: true, description: 'Enables cypress to take screenshots of failing integration tests.', name: 'EnableScreenshotRecording'),
+                    choice(name: 'TrivySeverityLevels', choices: [TrivySeverityLevel.CRITICAL, TrivySeverityLevel.HIGH_AND_ABOVE, TrivySeverityLevel.MEDIUM_AND_ABOVE, TrivySeverityLevel.ALL], description: 'The levels to scan with trivy', defaultValue: TrivySeverityLevel.CRITICAL),
+                    choice(name: 'TrivyStrategy', choices: [TrivyScanStrategy.UNSTABLE, TrivyScanStrategy.FAIL, TrivyScanStrategy.IGNORE], description: 'Define whether the build should be unstable, fail or whether the error should be ignored if any vulnerability was found.', defaultValue: TrivyScanStrategy.UNSTABLE),
                 ])
         ])
 
@@ -71,11 +69,18 @@ node('vagrant') {
             }
 
             stage('Build') {
+                // change namespace to prerelease_namespace if in develop-branch
+                if (gitflow.isPreReleaseBranch()) {
+                    ecoSystem.vagrant.ssh "cd /dogu && make prerelease_namespace"
+                }
                 ecoSystem.build("/dogu")
             }
 
             stage('Trivy scan') {
+                // copy image from builder to worker to scan image there
                 ecoSystem.copyDoguImageToJenkinsWorker("/dogu")
+
+                // execute real scan on worker
                 Trivy trivy = new Trivy(this)
                 trivy.scanDogu(".", params.TrivySeverityLevels, params.TrivyStrategy)
                 trivy.saveFormattedTrivyReport(TrivyScanFormat.TABLE)
@@ -109,6 +114,11 @@ node('vagrant') {
 
                 stage('Add Github-Release') {
                     github.createReleaseWithChangelog(releaseVersion, changelog)
+                }
+            } else if (gitflow.isPreReleaseBranch()) {
+                // push to registry in prerelease_namespace
+                stage('Push Prerelease Dogu to registry') {
+                    ecoSystem.pushPreRelease("/dogu")
                 }
             }
         } finally {
