@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2025.0-1] - 2025-01-15
+- [#31] Update plantuml to 1.2025.0
+- [#31] Update Base to 3.21.0-1
+- [#31] Update Java Image to 21.0.5-1
+- [#31] Update ces-build-lib to 4.0.1
+- [#31] Update dogu-build-lib to v3.0.0
+- [#29] Update Makefiles to 9.5.0
+
 ## [v2024.7-1] - 2024-10-01
 
 ### Changed
