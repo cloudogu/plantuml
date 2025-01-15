@@ -33,7 +33,6 @@ get_highest_version() {
 
 # Patch Jenkinsfile
 update_jenkinsfile() {
-  echo $(get_highest_version dogu)
   sed -i "s/ces-build-lib@[[:digit:]].[[:digit:]].[[:digit:]]/ces-build-lib@$(get_highest_version ces)/g" Jenkinsfile
   sed -i "s/dogu-build-lib@v[[:digit:]].[[:digit:]].[[:digit:]]/dogu-build-lib@v$(get_highest_version dogu)/g" Jenkinsfile
 }

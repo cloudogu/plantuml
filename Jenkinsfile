@@ -121,7 +121,6 @@ node('vagrant') {
                     ecoSystem.pushPreRelease("/dogu")
                 }
             }
-
         } finally {
             stage('Clean') {
                 ecoSystem.destroy()
