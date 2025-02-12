@@ -5,6 +5,8 @@ Im Folgenden finden Sie die Release Notes für das PlantUML-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/plantuml/CHANGELOG/).
 
 ## [Unreleased]
+
+## [v2025.0-2] - 2025-02-12
 * Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
 
 ## [v2025.0-1] - 2025-01-15
