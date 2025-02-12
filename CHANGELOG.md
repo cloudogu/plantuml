@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2025.0-2] - 2025-02-12
+### Added
+- [#35] Add missing dogu-config in dogu.json
+
+### Changed
+- [#35] Invalid log level result in an error instead of using the default value because the value can not be removed from the dogu config.
+
 ## [v2025.0-1] - 2025-01-15
 - [#31] Update plantuml to 1.2025.0
 - [#31] Update Base to 3.21.0-1
