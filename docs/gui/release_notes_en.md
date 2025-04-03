@@ -6,7 +6,8 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 ### Changed
-- We have only made technical changes. You can find more details in the changelogs.
+* Fix of critical CVE-2025-24813 in runtime dependencies. This vulnerability could not be actively exploited, though.
+* We also made technical changes. You can find more details in the changelogs.
 
 ## [v2025.0-2] - 2025-02-12
 * We have only made technical changes. You can find more details in the changelogs.

@@ -6,7 +6,8 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 ### Changed
-- Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
+* Behebung von kritischer CVE-2025-24813 in Laufzeitabhängigkeiten. Diese Schwachstelle konnte jedoch nicht aktiv ausgenutzt werden.
+* Wir haben auch technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
 
 ## [v2025.0-2] - 2025-02-12
 * Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
