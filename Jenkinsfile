@@ -3,7 +3,7 @@
 import com.cloudogu.ces.cesbuildlib.*
 import com.cloudogu.ces.dogubuildlib.*
 
-node('docker') {
+node('sos') {
 
     stage('Checkout') {
         checkout scm
@@ -18,12 +18,15 @@ node('docker') {
         shellCheck("resources/startup.sh")
         shellCheck("resources/opt/apache-tomcat/bin/setenv.sh")
     }
+
     stage('Check markdown links') {
         Markdown markdown = new Markdown(this, "3.11.0")
         markdown.check()
     }
 }
-node('vagrant') {
+
+node('sos') {
+
     Git git = new Git(this, "cesmarvin")
     git.committerName = 'cesmarvin'
     git.committerEmail = 'cesmarvin@cloudogu.com'
