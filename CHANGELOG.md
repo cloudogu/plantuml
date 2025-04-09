@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#37] Update Build libs
 - [#37] Update Makefiles
 ### Security
-- [#243] Fix [CVE-2025-24813](https://nvd.nist.gov/vuln/detail/CVE-2025-24813)
+- [#37] Fix [CVE-2025-24813](https://nvd.nist.gov/vuln/detail/CVE-2025-24813)
 
 ## [v2025.0-2] - 2025-02-12
 ### Added
