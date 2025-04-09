@@ -8,6 +8,8 @@ When('diagram gets exported', () => {
     cy.get('.editor-menu').click({ force: true });
     cy.get('.menu-item').eq(2).click({ force: true });
     cy.get('#diagram-export-ok-btn').click({ force: true });
+    // wait for export
+    cy.wait(1000);
 });
 
 When('picture link gets clicked', () => {

@@ -1,9 +1,9 @@
 #!groovy
-@Library(['github.com/cloudogu/ces-build-lib@4.0.1', 'github.com/cloudogu/dogu-build-lib@v3.0.0'])
+@Library(['github.com/cloudogu/ces-build-lib@4.2.0', 'github.com/cloudogu/dogu-build-lib@v3.1.0'])
 import com.cloudogu.ces.cesbuildlib.*
 import com.cloudogu.ces.dogubuildlib.*
 
-node('docker') {
+node('sos') {
 
     stage('Checkout') {
         checkout scm
@@ -18,12 +18,15 @@ node('docker') {
         shellCheck("resources/startup.sh")
         shellCheck("resources/opt/apache-tomcat/bin/setenv.sh")
     }
+
     stage('Check markdown links') {
         Markdown markdown = new Markdown(this, "3.11.0")
         markdown.check()
     }
 }
-node('vagrant') {
+
+node('sos') {
+
     Git git = new Git(this, "cesmarvin")
     git.committerName = 'cesmarvin'
     git.committerEmail = 'cesmarvin@cloudogu.com'
@@ -54,6 +57,10 @@ node('vagrant') {
             }
 
             stage('Provision') {
+                // change namespace to prerelease_namespace if in develop-branch
+                if (gitflow.isPreReleaseBranch()) {
+                    sh "make prerelease_namespace"
+                }
                 ecoSystem.provision("/dogu")
             }
 
@@ -69,10 +76,6 @@ node('vagrant') {
             }
 
             stage('Build') {
-                // change namespace to prerelease_namespace if in develop-branch
-                if (gitflow.isPreReleaseBranch()) {
-                    ecoSystem.vagrant.ssh "cd /dogu && make prerelease_namespace"
-                }
                 ecoSystem.build("/dogu")
             }
 
