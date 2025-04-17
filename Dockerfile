@@ -40,7 +40,7 @@ RUN rm "apache-tomcat-${TOMCAT_VERSION}.tar"
 FROM registry.cloudogu.com/official/java:11.0.25-1
 
 LABEL NAME="official/plantuml" \
-   VERSION="2023.10-5" \
+   VERSION="2023.10-6" \
    maintainer="hello@cloudogu.com"
 
 ARG PLANTUML_VERSION
