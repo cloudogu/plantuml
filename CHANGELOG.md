@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2025.2-2] - 2025-04-25
+### Changed
+- [#40] Set sensible resource requests and limits
+
 ## [v2025.2-1] - 2025-04-09
 ### Changed
 - [#37] Update PlantUML to 1.2025.2

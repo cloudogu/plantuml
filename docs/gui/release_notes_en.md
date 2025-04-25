@@ -6,6 +6,9 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v2025.2-2] - 2025-04-25
+* Usage of memory and CPU was optimized for the Kubernetes Mutlinode environment.
+
 ## [v2025.2-1] - 2025-04-09
 ### Security
 * This release fixes the critical security vulnerability [CVE-2025-24813](https://nvd.nist.gov/vuln/detail/CVE-2025-24813).
