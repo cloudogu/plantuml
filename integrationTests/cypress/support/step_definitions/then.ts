@@ -10,9 +10,16 @@ Then('diagram matches', () => {
 
 Then('diagram matches existing .puml', () => {
     cy.clickWarpMenuCheckboxIfPossible();
-    cy.readFile('cypress/fixtures/diagram_expected.puml').then((file) => {
-        cy.readFile(`${Cypress.config('downloadsFolder')}/diagram.puml`).should('eq', file);
-    })
+
+    const downloadedFile = `${Cypress.config('downloadsFolder')}/diagram.puml`;
+
+    // Wait for the file to exist before comparing
+    cy.readFile(downloadedFile, { timeout: 5000 }).should('exist');
+    cy.readFile(downloadedFile).then((actualContent) => {
+        cy.readFile('cypress/fixtures/diagram_expected.puml').then((expectedContent) => {
+            expect(actualContent).to.eq(expectedContent);
+        });
+    });
 });
 
 Then('picture gets downloaded', () => {
