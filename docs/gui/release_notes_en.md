@@ -5,6 +5,8 @@ Below you will find the release notes for the PlantUML Dogu.
 Technical details on a release can be found in the corresponding [Changelog](https://docs.cloudogu.com/en/docs/dogus/plantuml/CHANGELOG/).
 
 ## [Unreleased]
+### Changed
+* This dogu now uses plantuml 1.2025.3. You can find the release notes [here](https://plantuml.com/en/changes) (see v1.2025.3 (Jun 1, 2025)).
 
 ## [v2025.2-2] - 2025-04-25
 * Usage of memory and CPU was optimized for the Kubernetes Mutlinode environment.

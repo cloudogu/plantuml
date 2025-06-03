@@ -5,6 +5,8 @@ Im Folgenden finden Sie die Release Notes für das PlantUML-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/plantuml/CHANGELOG/).
 
 ## [Unreleased]
+### Changed
+* Das Dogu bietet nun die PlantUML-Version 1.2025.3. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes) (unter v1.2025.3 (Jun 1, 2025)).
 
 ## [v2025.2-2] - 2025-04-25
 * Die Verwendung von Speicher und CPU wurden für die Kubernetes-Multinode-Umgebung optimiert.
