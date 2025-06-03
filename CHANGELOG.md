@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2025.3-1] - 2025-06-03
+### Changed
+- [#42] Update PlantUML to 1.2025.3
+- [#42] Update dogu-build-lib to v3.2.0
+- [#42] Integrated Shared Pipeline Wrapper in Jenkinsfile
+
 ## [v2025.2-2] - 2025-04-25
 ### Changed
 - [#40] Set sensible resource requests and limits
