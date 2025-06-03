@@ -1,8 +1,8 @@
 #!groovy
 @Library([
   'github.com/cloudogu/build-lib-wrapper@develop',
-  'ces-build-lib',
-  'dogu-build-lib'
+  'ces-build-lib', // versioning handled by Global Trusted Pipeline Libraries in Jenkins
+  'dogu-build-lib' // versioning handled by Global Trusted Pipeline Libraries in Jenkins
 ]) _
 
 // Now call the sharedBuildPipeline function with your custom configuration.
