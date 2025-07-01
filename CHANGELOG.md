@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+- [#44] Update PlantUML to 1.2025.4
+- [#37] Update Makefiles to 10.1.1
 
 ## [v2025.3-1] - 2025-06-03
 ### Changed
