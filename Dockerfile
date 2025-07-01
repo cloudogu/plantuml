@@ -9,15 +9,15 @@ FROM maven:3.9.9-eclipse-temurin-11 AS builder
 ARG PLANTUML_VERSION
 
 RUN set -eux \
- && apt update \
- && apt install -y wget
+ && apt-get update \
+ && apt-get install -y wget
 WORKDIR /src
 RUN wget https://github.com/plantuml/plantuml-server/archive/refs/tags/v${PLANTUML_VERSION}.tar.gz -O plantuml.tar.gz
 RUN echo "${PLANTUML_TARGZ_SHA256} plantuml.tar.gz" | sha256sum -c -
 RUN tar xvfz plantuml.tar.gz
 RUN cd plantuml-server-${PLANTUML_VERSION} && mvn --batch-mode --define java.net.useSystemProxies=true -Dapache-jsp.scope=compile package
 
-FROM registry.cloudogu.com/official/base:3.21.0-1 AS tomcat
+FROM registry.cloudogu.com/official/base:3.22.0-3 AS tomcat
 
 ARG TOMCAT_MAJOR_VERSION
 ARG TOMCAT_VERSION
