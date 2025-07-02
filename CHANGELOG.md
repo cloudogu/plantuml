@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2025.4-1] - 2025-07-02
+- [#44] Update PlantUML to 1.2025.4
+- [#37] Update Makefiles to 10.1.1
+
 ## [v2025.3-1] - 2025-06-03
 ### Changed
 - [#42] Update PlantUML to 1.2025.3

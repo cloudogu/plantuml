@@ -6,6 +6,9 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+## [v2025.4-1] - 2025-07-02
+* Das Dogu bietet nun PlantUML 1.2025.4 an. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes).
+
 ## [v2025.3-1] - 2025-06-03
 ### Changed
 * Das Dogu bietet nun die PlantUML-Version 1.2025.3. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes) (unter v1.2025.3 (Jun 1, 2025)).
