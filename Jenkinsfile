@@ -1,6 +1,6 @@
 #!groovy
 @Library([
-  'pipe-build-lib@test/buildconfig',
+  'pipe-build-lib',
   'ces-build-lib',
   'dogu-build-lib'
 ]) _
