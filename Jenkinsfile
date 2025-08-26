@@ -18,5 +18,4 @@ def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
 
 pipe.setBuildProperties()
 pipe.addDefaultStages()
-pipe.script.error "test"
 pipe.run()
