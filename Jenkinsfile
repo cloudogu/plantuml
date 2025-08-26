@@ -1,6 +1,6 @@
 #!groovy
 @Library([
-  'pipe-build-lib',
+  'pipe-build-lib@test/buildconfig',
   'ces-build-lib',
   'dogu-build-lib'
 ]) _
@@ -18,4 +18,5 @@ def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
 
 pipe.setBuildProperties()
 pipe.addDefaultStages()
+pipe.script.error "test"
 pipe.run()
