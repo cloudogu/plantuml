@@ -2,7 +2,7 @@
 @Library([
   'pipe-build-lib',
   'ces-build-lib',
-  'dogu-build-lib'
+  'dogu-build-lib@fix/preset-for-new-coder-instance'
 ]) _
 
 def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
