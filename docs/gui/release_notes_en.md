@@ -6,6 +6,10 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v2025.8-1] - 2025-10-14
+### Changed
+* This dogu now provides PlantUML 1.2025.8. You can find the release notes [here](https://plantuml.com/en/changes).
+
 ## [v2025.7-1] - 2025-09-19
 * This dogu now provides PlantUML 1.2025.7. You can find the release notes [here](https://plantuml.com/en/changes).
 
