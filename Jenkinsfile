@@ -2,7 +2,7 @@
 @Library([
   'pipe-build-lib',
   'ces-build-lib',
-  'dogu-build-lib'
+  'dogu-build-lib@feature/75-include-ecosystem-core-for-cluster-setup'
 ]) _
 
 def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
