@@ -16,8 +16,6 @@ def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
     cypressImage        : "cypress/included:13.14.2",
 ])
 
-# test
-
 pipe.setBuildProperties()
 pipe.addDefaultStages()
 pipe.run()
