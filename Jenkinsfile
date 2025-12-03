@@ -24,7 +24,7 @@ pipe.overrideStage('MN-Setup', {
             clustername: this.params.ClusterName,
             additionalDogus: [],
             additionalComponents: [],
-            versionEcosystemCore: "2.1.0"
+            versionEcosystemCore: "2.0.1"
     ]
 
     pipe.@multiNodeEcoSystem.setup(defaultSetupConfig)
