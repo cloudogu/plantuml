@@ -18,4 +18,26 @@ def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
 
 pipe.setBuildProperties()
 pipe.addDefaultStages()
+
+pipe.overrideStage('MN-Setup', {
+    def defaultSetupConfig = [
+            clustername: script.params.ClusterName,
+            additionalDogus: [],
+            additionalComponents: [],
+            versionEcosystemCore: "2.1.0"
+    ]
+    additionalDogus.each { d ->
+        if (!defaultSetupConfig.additionalDogus.contains(d)) {
+            defaultSetupConfig.additionalDogus << d
+        }
+    }
+    additionalComponents.each { c ->
+        if (!defaultSetupConfig.additionalComponents.contains(c)) {
+            defaultSetupConfig.additionalComponents << c
+        }
+    }
+
+    multiNodeEcoSystem.setup(defaultSetupConfig)
+})
+
 pipe.run()
