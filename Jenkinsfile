@@ -21,7 +21,7 @@ pipe.addDefaultStages()
 
 pipe.overrideStage('MN-Setup', {
     def defaultSetupConfig = [
-            clustername: script.params.ClusterName,
+            clustername: this.params.ClusterName,
             additionalDogus: [],
             additionalComponents: [],
             versionEcosystemCore: "2.1.0"
