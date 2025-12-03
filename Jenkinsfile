@@ -27,7 +27,7 @@ pipe.overrideStage('MN-Setup', {
             versionEcosystemCore: "2.1.0"
     ]
 
-    multiNodeEcoSystem.setup(defaultSetupConfig)
+    pipe.@multiNodeEcoSystem.setup(defaultSetupConfig)
 })
 
 pipe.run()
