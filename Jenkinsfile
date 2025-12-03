@@ -26,16 +26,6 @@ pipe.overrideStage('MN-Setup', {
             additionalComponents: [],
             versionEcosystemCore: "2.1.0"
     ]
-    additionalDogus.each { d ->
-        if (!defaultSetupConfig.additionalDogus.contains(d)) {
-            defaultSetupConfig.additionalDogus << d
-        }
-    }
-    additionalComponents.each { c ->
-        if (!defaultSetupConfig.additionalComponents.contains(c)) {
-            defaultSetupConfig.additionalComponents << c
-        }
-    }
 
     multiNodeEcoSystem.setup(defaultSetupConfig)
 })
