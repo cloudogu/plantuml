@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- [#50] Update PlantUML to 1.2025.10
+- [#50] Update base image to 3.22.0-5
+- [#50] Update java base image to 21.0.9-2
 
 ## [v2025.8-1] - 2025-10-14
 ### Changed
