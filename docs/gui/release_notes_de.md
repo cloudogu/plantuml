@@ -6,6 +6,9 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+### Security
+- [#52] Sicherheitslücke geschlossen [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
+
 ## [v2025.10-1] - 2025-12-16
 * Das Dogu bietet nun PlantUML 1.2025.10 an. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes).
 
