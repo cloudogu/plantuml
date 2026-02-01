@@ -6,6 +6,12 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v2025.2-3] - 2026-02-01
+
+### Security
+- Fixed CVE: [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
+
+
 ## [v2025.2-2] - 2025-04-25
 * Usage of memory and CPU was optimized for the Kubernetes Mutlinode environment.
 
