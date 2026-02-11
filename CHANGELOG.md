@@ -6,15 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [v2025.10-3] - 2026-02-05
+## [v2025.10-4] - 2026-02-11
 ### Security
 - [#54] CVE fixed [cve-2026-24515](https://avd.aquasec.com/nvd/2026/cve-2026-24515/)
+
+### Changed
+- [#54] Update Java Image to 21.0.10-2
+
+## [v2025.10-3] - 2026-02-05
 ### Changed
 - [#54] Update Base Image to 3.23.3-2
 - [#54] Update Makefiles to 10.5.0
 
 ## [v2025.10-2] - 2026-01-29
-
 ### Security
 - [#52] CVE fixed: [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
 
