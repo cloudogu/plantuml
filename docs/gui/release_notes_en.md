@@ -6,10 +6,13 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
-## [v2025.10-2] - 2026-01-29
-
+## [v2025.10-4] - 2026-02-11
 ### Security
-- [#52] fixed [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
+- [#54] CVE fixed [cve-2026-24515](https://avd.aquasec.com/nvd/2026/cve-2026-24515/)
+
+## [v2025.10-2] - 2026-01-29
+### Security
+- [#52] CVE fixed [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
 
 ## [v2025.10-1] - 2025-12-16
 * This dogu now provides PlantUML 1.2025.10. You can find the release notes [here](https://plantuml.com/en/changes).
