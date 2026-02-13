@@ -5,6 +5,8 @@ Below you will find the release notes for the PlantUML Dogu.
 Technical details on a release can be found in the corresponding [Changelog](https://docs.cloudogu.com/en/docs/dogus/plantuml/CHANGELOG/).
 
 ## [Unreleased]
+### Security
+- Fix CVE-2025-68121
 
 ## [v2025.10-4] - 2026-02-11
 ### Security
