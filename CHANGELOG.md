@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2025.10-5] - 2026-02-13
+### Security
+- [#56] Fix Go stdlib CVE-2025-68121
+  - updated java base image to 21.0.10-3
+
 ## [v2025.10-4] - 2026-02-11
 ### Security
 - [#54] CVE fixed [cve-2026-24515](https://avd.aquasec.com/nvd/2026/cve-2026-24515/)
