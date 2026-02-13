@@ -6,7 +6,7 @@
 ]) _
 
 def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
-    doguName: "plantuml",
+    doguName            : "plantuml",
     updateSubmodules    : false,
     shellScripts        : "./resources/startup.sh ./resources/opt/apache-tomcat/bin/setenv.sh",
     dependencies        : ["nginx"],
@@ -14,6 +14,7 @@ def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
     runIntegrationTests : true,
     doBatsTests         : true,
     cypressImage        : "cypress/included:13.14.2",
+    defaultBranch       : "master"
 ])
 
 pipe.setBuildProperties()
