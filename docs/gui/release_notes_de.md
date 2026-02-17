@@ -6,6 +6,9 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+## [v2025.10-6] - 2026-02-17
+- Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
+
 ## [v2025.10-5] - 2026-02-13
 ### Security
 - Sicherheitslücke geschlossen CVE-2025-68121

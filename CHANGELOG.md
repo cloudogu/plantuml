@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2025.10-6] - 2026-02-17
+### Fixed
+- [#58] Upgrade base-image to 21.0.10-4
+    - This fixes a bug in doguctl, to not check the local config if volume is not mounted.
+
 ## [v2025.10-5] - 2026-02-13
 ### Security
 - [#56] Fix Go stdlib CVE-2025-68121
