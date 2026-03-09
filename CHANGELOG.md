@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#61] Update PlantUML to 1.2026.1
 - [#61] Update Tomcat to 10.1.50
 ### Security
-- [#61] CVE fixed [CVE-2026-25646](https://avd.aquasec.com/nvd/2026/CVE-2026-25646/)
+- [#61] CVE fixed [CVE-2026-25646](https://avd.aquasec.com/nvd/2026/cve-2026-25646)
 
 ## [v2025.10-6] - 2026-02-17
 ### Fixed
