@@ -4,6 +4,7 @@ ARG PLANTUML_TARGZ_SHA256=a2d26b1c65d67de5cad270804b6ebefb156817242446ab895dcdb0
 ARG TOMCAT_MAJOR_VERSION=10
 ARG TOMCAT_VERSION=10.1.50
 ARG TOMCAT_TARGZ_SHA256=f74f9f1a7ac2cf6eeede2c50f45088d9c3e55f77d5777f9f7033ed3d43ef529c
+ARG TOMCAT_NATIVE_VERSION=2.0.8-r0
 
 FROM maven:3.9.9-eclipse-temurin-11 AS builder
 
@@ -46,6 +47,7 @@ LABEL NAME="official/plantuml" \
 
 ARG PLANTUML_VERSION
 ARG TOMCAT_VERSION
+ARG TOMCAT_NATIVE_VERSION
 
 # configure environment
 ENV TOMCAT_VERSION=${TOMCAT_VERSION} \
@@ -61,7 +63,7 @@ ENV TOMCAT_VERSION=${TOMCAT_VERSION} \
 # run installation
 RUN apk update \
  && apk upgrade \
- && apk add graphviz font-dejavu font-noto-cjk tomcat-native jetty-runner \
+ && apk add graphviz font-dejavu font-noto-cjk tomcat-native=${TOMCAT_NATIVE_VERSION} jetty-runner \
  && rm -rf /var/cache/apk/*
 
 # create group and user for plantuml
