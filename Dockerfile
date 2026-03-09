@@ -1,5 +1,5 @@
-ARG PLANTUML_VERSION=1.2025.10
-ARG PLANTUML_TARGZ_SHA256=7a9e111d7a9e4019019ceee634c6e7103888a39c7bdd4ef4bb248d7f981c09f3
+ARG PLANTUML_VERSION=1.2026.1
+ARG PLANTUML_TARGZ_SHA256=1ceda09d7b83967bc353c22cac71a426f46418b80cdb849096d4632438c18d04
 
 ARG TOMCAT_MAJOR_VERSION=10
 ARG TOMCAT_VERSION=10.1.39
@@ -59,17 +59,16 @@ ENV TOMCAT_VERSION=${TOMCAT_VERSION} \
     STARTUP_DIR=/
 
 # run installation
-RUN set -o errexit \
- && set -o nounset \
- && set -o pipefail \
- && apk update \
+RUN apk update \
  && apk upgrade \
- && apk add --no-cache graphviz font-dejavu font-noto-cjk tomcat-native jetty-runner \
- # create group and user for plantuml
- && addgroup -S -g 1000 plantuml \
+ && apk add graphviz font-dejavu font-noto-cjk tomcat-native jetty-runner \
+ && rm -rf /var/cache/apk/*
+
+# create group and user for plantuml
+RUN addgroup -S -g 1000 plantuml \
  && adduser -S -h /opt/apache-tomcat -s /bin/bash -G plantuml -u 1000 plantuml
 
-#install tomcat
+# install tomcat
 COPY --from=tomcat --chown=plantuml:plantuml /opt/apache-tomcat-${TOMCAT_VERSION} ${CATALINA_BASE}
 COPY --from=builder --chown=plantuml:plantuml /src/plantuml-server-${PLANTUML_VERSION}/target/plantuml.war ${CATALINA_BASE}/webapps/
 COPY --chown=plantuml:plantuml resources ${STARTUP_DIR}
