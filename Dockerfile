@@ -1,9 +1,10 @@
-ARG PLANTUML_VERSION=1.2025.10
-ARG PLANTUML_TARGZ_SHA256=7a9e111d7a9e4019019ceee634c6e7103888a39c7bdd4ef4bb248d7f981c09f3
+ARG PLANTUML_VERSION=1.2026.2
+ARG PLANTUML_TARGZ_SHA256=a2d26b1c65d67de5cad270804b6ebefb156817242446ab895dcdb04a6f4faa92
 
 ARG TOMCAT_MAJOR_VERSION=10
-ARG TOMCAT_VERSION=10.1.39
-ARG TOMCAT_TARGZ_SHA512=55998c7e906a37340f4b56ca66d4a1ef7c0f7a061a9b868e7ed90cce8188f469495ee590d9971eb8d9870dc34ed89b63d6b870a281cb7e84de14a7555fc100e1
+ARG TOMCAT_VERSION=10.1.50
+ARG TOMCAT_TARGZ_SHA256=f74f9f1a7ac2cf6eeede2c50f45088d9c3e55f77d5777f9f7033ed3d43ef529c
+ARG TOMCAT_NATIVE_VERSION=2.0.8-r0
 
 FROM maven:3.9.9-eclipse-temurin-11 AS builder
 
@@ -23,16 +24,16 @@ FROM registry.cloudogu.com/official/base:3.23.3-4 AS tomcat
 
 ARG TOMCAT_MAJOR_VERSION
 ARG TOMCAT_VERSION
-ARG TOMCAT_TARGZ_SHA512
+ARG TOMCAT_TARGZ_SHA256
 
 ENV TOMCAT_MAJOR_VERSION=${TOMCAT_MAJOR_VERSION} \
     TOMCAT_VERSION=${TOMCAT_VERSION} \
-    TOMCAT_TARGZ_SHA256=${TOMCAT_TARGZ_SHA512}
+    TOMCAT_TARGZ_SHA256=${TOMCAT_TARGZ_SHA256}
 
-RUN apk update && apk add wget
+RUN apk add --no-cache wget
 RUN wget -O  "apache-tomcat-${TOMCAT_VERSION}.tar.gz" \
   "http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz"
-RUN echo "${TOMCAT_TARGZ_SHA512} *apache-tomcat-${TOMCAT_VERSION}.tar.gz" | sha512sum -c -
+RUN echo "${TOMCAT_TARGZ_SHA256} *apache-tomcat-${TOMCAT_VERSION}.tar.gz" | sha256sum -c -
 RUN gunzip "apache-tomcat-${TOMCAT_VERSION}.tar.gz"
 RUN tar xf "apache-tomcat-${TOMCAT_VERSION}.tar" -C /opt
 RUN rm "apache-tomcat-${TOMCAT_VERSION}.tar"
@@ -41,11 +42,12 @@ RUN rm "apache-tomcat-${TOMCAT_VERSION}.tar"
 FROM registry.cloudogu.com/official/java:21.0.10-4
 
 LABEL NAME="official/plantuml" \
-   VERSION="2025.10-6" \
+   VERSION="2026.2-1" \
    maintainer="hello@cloudogu.com"
 
 ARG PLANTUML_VERSION
 ARG TOMCAT_VERSION
+ARG TOMCAT_NATIVE_VERSION
 
 # configure environment
 ENV TOMCAT_VERSION=${TOMCAT_VERSION} \
@@ -59,17 +61,16 @@ ENV TOMCAT_VERSION=${TOMCAT_VERSION} \
     STARTUP_DIR=/
 
 # run installation
-RUN set -o errexit \
- && set -o nounset \
- && set -o pipefail \
- && apk update \
+RUN apk update \
  && apk upgrade \
- && apk add --no-cache graphviz font-dejavu font-noto-cjk tomcat-native jetty-runner \
- # create group and user for plantuml
- && addgroup -S -g 1000 plantuml \
+ && apk add graphviz font-dejavu font-noto-cjk tomcat-native=${TOMCAT_NATIVE_VERSION} jetty-runner \
+ && rm -rf /var/cache/apk/*
+
+# create group and user for plantuml
+RUN addgroup -S -g 1000 plantuml \
  && adduser -S -h /opt/apache-tomcat -s /bin/bash -G plantuml -u 1000 plantuml
 
-#install tomcat
+# install tomcat
 COPY --from=tomcat --chown=plantuml:plantuml /opt/apache-tomcat-${TOMCAT_VERSION} ${CATALINA_BASE}
 COPY --from=builder --chown=plantuml:plantuml /src/plantuml-server-${PLANTUML_VERSION}/target/plantuml.war ${CATALINA_BASE}/webapps/
 COPY --chown=plantuml:plantuml resources ${STARTUP_DIR}
