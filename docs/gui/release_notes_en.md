@@ -6,6 +6,12 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v2026.2-1] - 2026-03-10
+### Changed
+- [#61] This dogu now provides PlantUML 1.2026.2. You can find the release notes [here](https://plantuml.com/en/changes).
+### Security
+- [#61] CVE fixed [CVE-2026-25646](https://avd.aquasec.com/nvd/2026/cve-2026-25646)
+
 ## [v2025.10-6] - 2026-02-17
 - We have only made technical changes. You can find more details in the changelogs.
 
