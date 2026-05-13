@@ -5,7 +5,7 @@ Im Folgenden finden Sie die Release Notes für das PlantUML-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/plantuml/CHANGELOG/).
 
 ## [Unreleased]
-
+- [#64] Sicherheitslücke geschlossen [CVE-2026-31789](https://avd.aquasec.com/nvd/2026/cve-2026-31789)
 ## [v2026.2-1] - 2026-03-10
 ### Changed
 - [#61] Das Dogu bietet nun PlantUML 1.2026.2 an. Die Release Notes finden Sie [hier](https://plantuml.com/en/changes).
