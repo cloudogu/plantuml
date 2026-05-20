@@ -8,6 +8,7 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ### Security
 - [#64] Sicherheitslücke geschlossen [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789
+- Tomcat auf v10.1.55 aktualisiert
 ## [v2026.2-1] - 2026-03-10
 ### Changed
 - [#61] Das Dogu bietet nun PlantUML 1.2026.2 an. Die Release Notes finden Sie [hier](https://plantuml.com/en/changes).
