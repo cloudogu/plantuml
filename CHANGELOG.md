@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2026.2-2] - 2026-05-21
+
 ## [v2026.2-1] - 2026-03-10
 ### Changed
 - [#61] Update PlantUML to 1.2026.2

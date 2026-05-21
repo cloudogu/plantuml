@@ -5,6 +5,8 @@ Below you will find the release notes for the PlantUML Dogu.
 Technical details on a release can be found in the corresponding [Changelog](https://docs.cloudogu.com/en/docs/dogus/plantuml/CHANGELOG/).
 
 ## [Unreleased]
+
+## [v2026.2-2] - 2026-05-21
 ### Security
 - [#64] CVE fixed [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789)
 - Update Tomcat to v10.1.55
