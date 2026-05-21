@@ -8,14 +8,14 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [v2026.2-2] - 2026-05-21
 ### Security
-- [#64] CVE fixed [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789)
+- CVE fixed [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789)
 - Update Tomcat to v10.1.55
 
 ## [v2026.2-1] - 2026-03-10
 ### Changed
-- [#61] This dogu now provides PlantUML 1.2026.2. You can find the release notes [here](https://plantuml.com/en/changes).
+- This dogu now provides PlantUML 1.2026.2. You can find the release notes [here](https://plantuml.com/en/changes).
 ### Security
-- [#61] CVE fixed [CVE-2026-25646](https://avd.aquasec.com/nvd/2026/cve-2026-25646)
+- CVE fixed [CVE-2026-25646](https://avd.aquasec.com/nvd/2026/cve-2026-25646)
 
 ## [v2025.10-6] - 2026-02-17
 - We have only made technical changes. You can find more details in the changelogs.
@@ -26,11 +26,11 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [v2025.10-4] - 2026-02-11
 ### Security
-- [#54] CVE fixed [cve-2026-24515](https://avd.aquasec.com/nvd/2026/cve-2026-24515/)
+- CVE fixed [cve-2026-24515](https://avd.aquasec.com/nvd/2026/cve-2026-24515/)
 
 ## [v2025.10-2] - 2026-01-29
 ### Security
-- [#52] CVE fixed [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
+- CVE fixed [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
 
 ## [v2025.10-1] - 2025-12-16
 * This dogu now provides PlantUML 1.2025.10. You can find the release notes [here](https://plantuml.com/en/changes).

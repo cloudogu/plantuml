@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [v2026.2-2] - 2026-05-21
+### Changed
+- [#64] Update Tomcat to v10.1.55
+### Security
+- [#64] CVE fixed [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789)
 
 ## [v2026.2-1] - 2026-03-10
 ### Changed

@@ -7,15 +7,15 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 ## [Unreleased]
 
 ## [v2026.2-2] - 2026-05-21
-
 ### Security
-- [#64] Sicherheitslücke geschlossen [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789)
+- Sicherheitslücke geschlossen [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789)
 - Tomcat auf v10.1.55 aktualisiert
+
 ## [v2026.2-1] - 2026-03-10
 ### Changed
-- [#61] Das Dogu bietet nun PlantUML 1.2026.2 an. Die Release Notes finden Sie [hier](https://plantuml.com/en/changes).
+- Das Dogu bietet nun PlantUML 1.2026.2 an. Die Release Notes finden Sie [hier](https://plantuml.com/en/changes).
 ### Security
-- [#61] Sicherheitslücke geschlossen [CVE-2026-25646](https://avd.aquasec.com/nvd/2026/cve-2026-25646)
+- Sicherheitslücke geschlossen [CVE-2026-25646](https://avd.aquasec.com/nvd/2026/cve-2026-25646)
 
 ## [v2025.10-6] - 2026-02-17
 - Wir haben nur technische Änderungen vorgenommen. Näheres finden Sie in den Changelogs.
@@ -26,11 +26,11 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [v2025.10-4] - 2026-02-11
 ### Security
-- [#54] Sicherheitslücke geschlossen [cve-2026-24515](https://avd.aquasec.com/nvd/2026/cve-2026-24515/)
+- Sicherheitslücke geschlossen [cve-2026-24515](https://avd.aquasec.com/nvd/2026/cve-2026-24515/)
 
 ## [v2025.10-2] - 2026-01-29
 ### Security
-- [#52] Sicherheitslücke geschlossen [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
+- Sicherheitslücke geschlossen [cve-2025-15467](https://avd.aquasec.com/nvd/2025/cve-2025-15467/)
 
 ## [v2025.10-1] - 2025-12-16
 * Das Dogu bietet nun PlantUML 1.2025.10 an. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes).
