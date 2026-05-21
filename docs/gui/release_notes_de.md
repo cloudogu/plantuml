@@ -6,6 +6,8 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+## [v2026.2-2] - 2026-05-21
+
 ### Security
 - [#64] Sicherheitslücke geschlossen [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789)
 - Tomcat auf v10.1.55 aktualisiert
