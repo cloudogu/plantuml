@@ -6,6 +6,11 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v2026.2-2] - 2026-05-21
+### Security
+- [#64] CVE fixed [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789)
+- Update Tomcat to v10.1.55
+
 ## [v2026.2-1] - 2026-03-10
 ### Changed
 - [#61] This dogu now provides PlantUML 1.2026.2. You can find the release notes [here](https://plantuml.com/en/changes).

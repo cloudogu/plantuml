@@ -2,9 +2,9 @@ ARG PLANTUML_VERSION=1.2026.2
 ARG PLANTUML_TARGZ_SHA256=a2d26b1c65d67de5cad270804b6ebefb156817242446ab895dcdb04a6f4faa92
 
 ARG TOMCAT_MAJOR_VERSION=10
-ARG TOMCAT_VERSION=10.1.50
-ARG TOMCAT_TARGZ_SHA256=f74f9f1a7ac2cf6eeede2c50f45088d9c3e55f77d5777f9f7033ed3d43ef529c
-ARG TOMCAT_NATIVE_VERSION=2.0.8-r0
+ARG TOMCAT_VERSION=10.1.55
+ARG TOMCAT_TARGZ_SHA256=978a0d0890345eec52a38c9670a8e112d4cc8cf8cb10ef41d05d6b7178857495
+ARG TOMCAT_NATIVE_VERSION=2.0.14-r0
 
 FROM maven:3.9.9-eclipse-temurin-11 AS builder
 
@@ -39,10 +39,10 @@ RUN tar xf "apache-tomcat-${TOMCAT_VERSION}.tar" -C /opt
 RUN rm "apache-tomcat-${TOMCAT_VERSION}.tar"
 
 
-FROM registry.cloudogu.com/official/java:21.0.10-4
+FROM registry.cloudogu.com/official/java:21.0.10-7
 
 LABEL NAME="official/plantuml" \
-   VERSION="2026.2-1" \
+   VERSION="2026.2-2" \
    maintainer="hello@cloudogu.com"
 
 ARG PLANTUML_VERSION
@@ -81,4 +81,4 @@ EXPOSE 8080
 
 HEALTHCHECK CMD doguctl healthy plantuml || exit 1
 
-CMD "/startup.sh"
+CMD ["/startup.sh"]
