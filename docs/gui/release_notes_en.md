@@ -6,8 +6,8 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 ### Security
-- [#64] CVE fixed [CVE-2026-31789] [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789)
-- Update tomcat to v10.1.55
+- [#64] CVE fixed [CVE-2026-31789](https://security-tracker.debian.org/tracker/CVE-2026-31789)
+- Update Tomcat to v10.1.55
 
 ## [v2026.2-1] - 2026-03-10
 ### Changed
