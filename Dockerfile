@@ -6,14 +6,14 @@ ARG TOMCAT_VERSION=10.1.55
 ARG TOMCAT_TARGZ_SHA256=978a0d0890345eec52a38c9670a8e112d4cc8cf8cb10ef41d05d6b7178857495
 ARG TOMCAT_NATIVE_VERSION=2.0.14-r0
 
-FROM maven:3.9.9-eclipse-temurin-17 AS builder
+FROM registry.cloudogu.com/official/java:25.0.2-2 AS builder
 
 ARG PLANTUML_VERSION
 ARG PLANTUML_TARGZ_SHA256
 
 RUN set -eux \
- && apt-get update \
- && apt-get install -y wget
+ && apk update \
+ && apk add --no-cache maven wget
 WORKDIR /src
 RUN wget https://github.com/plantuml/plantuml-server/archive/refs/tags/v${PLANTUML_VERSION}.tar.gz -O plantuml.tar.gz
 RUN echo "${PLANTUML_TARGZ_SHA256} plantuml.tar.gz" | sha256sum -c -

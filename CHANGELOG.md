@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - [#66] Update plantuml to v1.2026.5
-- [#66] Update maven image for builder stage to v3.9.9 with java target 17
+- [#66] Replace image for builder stage with java base image v25.0.2-2
 
 ## [v2026.2-2] - 2026-05-21
 ### Changed
