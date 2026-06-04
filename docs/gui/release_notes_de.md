@@ -6,7 +6,7 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 ### Changed
--Das Dogu bietet nun PlantUML v1.2026.5 an. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes)
+- Das Dogu bietet nun PlantUML v1.2026.5 an. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes)
 
 ## [v2026.2-2] - 2026-05-21
 ### Security
