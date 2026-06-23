@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2026.6-1] - 2026-06-23
+### Changed
+- [#68] Update PlantUML version to 1.2026.6
+- [#68] Update tomcat version to 10.1.56
+- [#68] Update java base image to 25.0.3-1
+- [#68] Update base image to 3.24.0-1
+- [#69] Update Makefiles to 10.9.1
+
 ## [v2026.5-1] - 2026-06-04
 ### Changed
 - [#66] Update plantuml to v1.2026.5
