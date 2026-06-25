@@ -1,3 +1,4 @@
+# renovate: datasource=github-tags depName=cloudogu/makefiles extractVersion=^v(?<version>.*)$
 MAKEFILES_VERSION=10.9.1
 
 .DEFAULT_GOAL:=help
