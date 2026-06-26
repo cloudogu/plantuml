@@ -14,7 +14,10 @@ def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
     runIntegrationTests : true,
     doBatsTests         : true,
     cypressImage        : "cypress/included:13.14.2",
-    defaultBranch       : "master"
+    defaultBranch       : "master",
+    agentStatic         : 'sos-testing',
+    agentVagrant        : 'sos-testing',
+    agentMultinode      : 'sos-testing',
 ])
 
 pipe.setBuildProperties()
