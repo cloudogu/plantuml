@@ -104,9 +104,7 @@
     highlight.js "11.4.0"
 
 "@bahmutov/cypress-esbuild-preprocessor@^2.2.0":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@bahmutov/cypress-esbuild-preprocessor/-/cypress-esbuild-preprocessor-2.2.3.tgz#2b3a3fb9940069c56f0a294e4134df092961ac5d"
-  integrity sha512-YdrZxCULKC3k5H5bjBeL6boadcsSXsdnJf6GQGHMRcqzUFzDQC1sZGNblauJzUU34XbA4Sko5ym4KajKf4WwAw==
+  version "2.2.8"
   dependencies:
     debug "4.3.7"
 
