@@ -882,9 +882,7 @@ cross-spawn@^7.0.0:
     which "^2.0.1"
 
 cypress-fs@^0.2.5:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/cypress-fs/-/cypress-fs-0.2.5.tgz#fb24fbf9bf87c9af4ba73ca35e227c9e3c2cbac6"
-  integrity sha512-nv3a4iNozkhEyTUpa8LuAKARsj7nXPbr/QyVZoMx3+u1VtEaEKyUR+e78xpF/F+WjCtKWUIJOr+gGVfJeokKtQ==
+  version "0.2.8"
   dependencies:
     cypress "^13.2.0"
     typescript "^5.0.4"
