@@ -1,9 +1,8 @@
 ARG PLANTUML_VERSION=1.2026.6
 ARG PLANTUML_TARGZ_SHA256=46b2ca33a827cd9570e4668f2b4709402e5b6eb0725f37d606cf2a19fa1da402
 
-ARG TOMCAT_MAJOR_VERSION=10
-ARG TOMCAT_VERSION=10.1.56
-ARG TOMCAT_TARGZ_SHA256=4001c41d036752daa6cccca22ec45bbbc55a58b41f9fa301088b9b1f9fa6991d
+ARG TOMCAT_VERSION=10.1.59
+ARG TOMCAT_TARGZ_SHA256=15e435e8ecafd30e500dec7cd30fc289aed4cd8743db14d55024896be77d9241
 ARG TOMCAT_NATIVE_VERSION=2.0.14-r0
 
 FROM registry.cloudogu.com/official/java:25.0.3-1 AS builder
@@ -22,17 +21,15 @@ RUN cd plantuml-server-${PLANTUML_VERSION} && mvn --batch-mode --define java.net
 
 FROM registry.cloudogu.com/official/base:3.24.0-1 AS tomcat
 
-ARG TOMCAT_MAJOR_VERSION
 ARG TOMCAT_VERSION
 ARG TOMCAT_TARGZ_SHA256
 
-ENV TOMCAT_MAJOR_VERSION=${TOMCAT_MAJOR_VERSION} \
-    TOMCAT_VERSION=${TOMCAT_VERSION} \
+ENV TOMCAT_VERSION=${TOMCAT_VERSION} \
     TOMCAT_TARGZ_SHA256=${TOMCAT_TARGZ_SHA256}
 
 RUN apk add --no-cache wget
 RUN wget -O  "apache-tomcat-${TOMCAT_VERSION}.tar.gz" \
-  "http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz"
+  "http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_VERSION%%.*}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz"
 RUN echo "${TOMCAT_TARGZ_SHA256} *apache-tomcat-${TOMCAT_VERSION}.tar.gz" | sha256sum -c -
 RUN gunzip "apache-tomcat-${TOMCAT_VERSION}.tar.gz"
 RUN tar xf "apache-tomcat-${TOMCAT_VERSION}.tar" -C /opt
