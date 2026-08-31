@@ -5,6 +5,8 @@ Im Folgenden finden Sie die Release Notes für das PlantUML-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/plantuml/CHANGELOG/).
 
 ## [Unreleased]
+
+## [v2026.6-2] - 2026-08-31
 ### Security
 - Dieses Release behebt Tomcat WID-SEC-2026-3007 (CVE-2026-65182, CVE-2026-65183, CVE-2026-65637, CVE-2026-65905, CVE-2026-65927, CVE-2026-66422, CVE-2026-68525, CVE-2026-68569, CVE-2026-68763, CVE-2026-73180).
 
