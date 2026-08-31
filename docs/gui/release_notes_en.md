@@ -6,6 +6,10 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v2026.6-2] - 2026-08-31
+### Security
+- This Release fixes Tomcat WID-SEC-2026-3007 (CVE-2026-65182, CVE-2026-65183, CVE-2026-65637, CVE-2026-65905, CVE-2026-65927, CVE-2026-66422, CVE-2026-68525, CVE-2026-68569, CVE-2026-68763, CVE-2026-73180).
+
 ## [v2026.6-1] - 2026-06-23
 ### Changed
 - This dogu now provides PlantUML v1.2026.6. You can find the release notes [here](https://plantuml.com/en/changes).
