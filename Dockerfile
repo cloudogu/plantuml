@@ -5,7 +5,7 @@ ARG TOMCAT_VERSION=10.1.59
 ARG TOMCAT_TARGZ_SHA256=15e435e8ecafd30e500dec7cd30fc289aed4cd8743db14d55024896be77d9241
 ARG TOMCAT_NATIVE_VERSION=2.0.14-r0
 
-FROM registry.cloudogu.com/official/java:25.0.3-1 AS builder
+FROM registry.cloudogu.com/official/java:25.0.4-1 AS builder
 
 ARG PLANTUML_VERSION
 ARG PLANTUML_TARGZ_SHA256
@@ -36,7 +36,7 @@ RUN tar xf "apache-tomcat-${TOMCAT_VERSION}.tar" -C /opt
 RUN rm "apache-tomcat-${TOMCAT_VERSION}.tar"
 
 
-FROM registry.cloudogu.com/official/java:25.0.3-1
+FROM registry.cloudogu.com/official/java:25.0.4-1
 
 LABEL NAME="official/plantuml" \
    VERSION="2026.8-0" \
