@@ -5,6 +5,8 @@ Im Folgenden finden Sie die Release Notes für das PlantUML-Dogu.
 Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https://docs.cloudogu.com/de/docs/dogus/plantuml/CHANGELOG/).
 
 ## [Unreleased]
+
+## [v2026.8-1] - 2026-09-11
 ### Changed
 - Das Dogu bietet nun PlantUML v1.2026.8 an. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes)
 
