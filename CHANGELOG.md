@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2026.8-1] - 2026-09-11
+### Changed
+- [#79] Update PlantUML to v1.2026.8
+- [#79] Bump base image to v3.24.1-3
+- [#79] Bump java base image to v25.0.4-1
+
 ## [v2026.6-2] - 2026-08-31
 ## Security
 - Fixed WID-SEC-2026-3007 (CVE-2026-65182, CVE-2026-65183, CVE-2026-65637, CVE-2026-65905, CVE-2026-65927, CVE-2026-66422, CVE-2026-68525, CVE-2026-68569, CVE-2026-68763, CVE-2026-73180) by updating Tomcat to v9.0.121.
