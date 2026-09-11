@@ -13,7 +13,11 @@ def pipe = new com.cloudogu.sos.pipebuildlib.DoguPipe(this, [
     checkMarkdown       : true,
     runIntegrationTests : true,
     doBatsTests         : true,
-    cypressImage        : "cypress/included:13.14.2",
+    // Default cypress/included:13.17.0 bundles Node 22.13, too old for
+    // cosmiconfig@10 (pulled in by @badeball/cypress-cucumber-preprocessor@28,
+    // required for cypress@16 compatibility). Override to an image with a
+    // newer bundled Node until the shared pipeline lib's own default catches up.
+    cypressImage        : "cypress/included:16.0.0",
     defaultBranch       : "master"
 ])
 
