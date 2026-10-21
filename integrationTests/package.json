@@ -4,7 +4,7 @@
     "@bahmutov/cy-api": "^2.3.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
     "@cloudogu/dogu-integration-test-library": "7.0.0",
-    "cypress": "16.0.0",
+    "cypress": "16.2.0",
     "cypress-fs": "^0.2.8",
     "esbuild": "^0.28.2",
     "typescript": "7.0.2"
