@@ -36,7 +36,7 @@ RUN tar xf "apache-tomcat-${TOMCAT_VERSION}.tar" -C /opt
 RUN rm "apache-tomcat-${TOMCAT_VERSION}.tar"
 
 
-FROM registry.cloudogu.com/official/java:25.0.5-1
+FROM registry.cloudogu.com/official/java:25.0.5-1 AS plantuml
 
 LABEL NAME="official/plantuml" \
    VERSION="2026.9-0" \
