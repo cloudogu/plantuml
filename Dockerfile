@@ -1,11 +1,11 @@
-ARG PLANTUML_VERSION=1.2026.9
-ARG PLANTUML_TARGZ_SHA256=bbc5ea9c8c86037aa2023be86fff880a8ed8d78e871d3c6c9d10e8f699f9e5e9
+ARG PLANTUML_VERSION=1.2026.10
+ARG PLANTUML_TARGZ_SHA256=d71a5f1e9d406335350ce3614db1713f16e6e404ad32e1304d92334245f99483
 
 ARG TOMCAT_VERSION=10.1.61
 ARG TOMCAT_TARGZ_SHA256=a9341c2ed0639896eb0760320c42430a303bef917f83ff3e6f16046f3ae2af79
 ARG TOMCAT_NATIVE_VERSION=2.0.16-r0
 
-FROM registry.cloudogu.com/official/java:25.0.5-1 AS builder
+FROM registry.cloudogu.com/official/java:25.0.5-2 AS builder
 
 ARG PLANTUML_VERSION
 ARG PLANTUML_TARGZ_SHA256
@@ -19,7 +19,7 @@ RUN echo "${PLANTUML_TARGZ_SHA256} plantuml.tar.gz" | sha256sum -c -
 RUN tar xvfz plantuml.tar.gz
 RUN cd plantuml-server-${PLANTUML_VERSION} && mvn --batch-mode --define java.net.useSystemProxies=true -Dapache-jsp.scope=compile package
 
-FROM registry.cloudogu.com/official/base:3.24.3-1 AS tomcat
+FROM registry.cloudogu.com/official/base:3.24.3-2 AS tomcat
 
 ARG TOMCAT_VERSION
 ARG TOMCAT_TARGZ_SHA256
@@ -36,10 +36,10 @@ RUN tar xf "apache-tomcat-${TOMCAT_VERSION}.tar" -C /opt
 RUN rm "apache-tomcat-${TOMCAT_VERSION}.tar"
 
 
-FROM registry.cloudogu.com/official/java:25.0.5-1 AS plantuml
+FROM registry.cloudogu.com/official/java:25.0.5-2 AS plantuml
 
 LABEL NAME="official/plantuml" \
-   VERSION="2026.9-1" \
+   VERSION="2026.10-1" \
    maintainer="hello@cloudogu.com"
 
 ARG PLANTUML_VERSION

@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2026.10-1] - 2026-11-12
+### Changed
+- [#85] Update PlantUML to v1.2026.10
+- [#85] Bump base image to v3.24.3-2
+- [#85] Bump java base image to v25.0.5-2
+
 ## [v2026.9-1] - 2026-11-02
 ### Changed
 - [#83] Update PlantUML to v1.2026.9

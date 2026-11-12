@@ -6,6 +6,10 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+## [v2026.10-1] - 2026-11-12
+### Changed
+- Das Dogu bietet nun PlantUML v1.2026.10 an. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes).
+
 ## [v2026.9-1] - 2026-11-02
 ### Changed
 - Das Dogu bietet nun PlantUML v1.2026.9 an. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes).
