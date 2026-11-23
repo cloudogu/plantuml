@@ -6,6 +6,10 @@ Technische Details zu einem Release finden Sie im zugehörigen [Changelog](https
 
 ## [Unreleased]
 
+## [v2026.10-2] - 2026-11-23
+### Security
+- Sicherheitslücke [CVE-2026-114938](https://nvd.nist.gov/vuln/detail/CVE-2026-114938) (Java4Shell) geschlossen
+
 ## [v2026.10-1] - 2026-11-12
 ### Changed
 - Das Dogu bietet nun PlantUML v1.2026.10 an. Die Release Notes von PlantUML finden Sie [hier](https://plantuml.com/en/changes).

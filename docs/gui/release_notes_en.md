@@ -6,6 +6,10 @@ Technical details on a release can be found in the corresponding [Changelog](htt
 
 ## [Unreleased]
 
+## [v2026.10-2] - 2026-11-23
+### Security
+- Fix vulnerability [CVE-2026-114938](https://nvd.nist.gov/vuln/detail/CVE-2026-114938) (Java4Shell)
+
 ## [v2026.10-1] - 2026-11-12
 ### Changed
 - This dogu now provides PlantUML v1.2026.10. You can find the release notes [here](https://plantuml.com/en/changes).
